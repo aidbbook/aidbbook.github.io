@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"aidbmovie.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="UNIX网络编程 信息作者: 史蒂文斯 &#x2F; 芬纳 &#x2F; 鲁道夫  出版社: 清华大学出版社  副标题:  第1卷:套接口API(第3版)  原作名: Unix Network Programming  译者: 杨继张  出版年: 2006-1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编程-40">
+<meta property="og:url" content="https://aidbmovie.github.io/2020/04/28/%E7%BC%96%E7%A8%8B-40/index.html">
+<meta property="og:site_name" content="豆瓣电影">
+<meta property="og:description" content="UNIX网络编程 信息作者: 史蒂文斯 &#x2F; 芬纳 &#x2F; 鲁道夫  出版社: 清华大学出版社  副标题:  第1卷:套接口API(第3版)  原作名: Unix Network Programming  译者: 杨继张  出版年: 2006-1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s1613283.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s2697984.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s29205454.jpg">
+<meta property="og:image" content="https://img1.doubanio.com/view/subject/l/public/s27836847.jpg">
+<meta property="og:image" content="https://img1.doubanio.com/view/subject/l/public/s6950239.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s24431930.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s27426301.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s27458236.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s27269296.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s2171906.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s27215120.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s10328621.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s4677623.jpg">
+<meta property="og:image" content="https://img1.doubanio.com/view/subject/l/public/s9029069.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s1815135.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s4549954.jpg">
+<meta property="og:image" content="https://img1.doubanio.com/view/subject/l/public/s29793528.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s6103451.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s1488795.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s4518521.jpg">
+<meta property="article:published_time" content="2020-04-28T13:39:22.572Z">
+<meta property="article:modified_time" content="2018-08-28T09:25:46.000Z">
+<meta property="article:author" content="ryo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img3.doubanio.com/view/subject/l/public/s1613283.jpg">
+
+<link rel="canonical" href="https://aidbmovie.github.io/2020/04/28/%E7%BC%96%E7%A8%8B-40/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>编程-40 | 豆瓣电影</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">豆瓣电影</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">爱电影，爱生活</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aidbmovie.github.io/2020/04/28/%E7%BC%96%E7%A8%8B-40/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryo">
+      <meta itemprop="description" content="好看优秀的书籍整理">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豆瓣电影">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          编程-40
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-28 21:39:22" itemprop="dateCreated datePublished" datetime="2020-04-28T21:39:22+08:00">2020-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-08-28 17:25:46" itemprop="dateModified" datetime="2018-08-28T17:25:46+08:00">2018-08-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="UNIX网络编程"><a href="#UNIX网络编程" class="headerlink" title="UNIX网络编程"></a>UNIX网络编程</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s1613283.jpg" alt="UNIX网络编程"></p>
+<h4 id="信息"><a href="#信息" class="headerlink" title="信息"></a>信息</h4><p>作者: 史蒂文斯 / 芬纳 / 鲁道夫 </p>
+<p>出版社: 清华大学出版社 </p>
+<p>副标题: </p>
+<p>第1卷:套接口API(第3版) </p>
+<p>原作名: Unix Network Programming </p>
+<p>译者: 杨继张 </p>
+<p>出版年: 2006-1 </p>
+<p>页数: 848 </p>
+<p>定价: 98.00元 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787302119746</p>
+<p>豆瓣评分: 9.5</p>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>《UNIX网络编程》(第1卷)(套接口API第3版)第1版和第2版由已故UNIX网络专家W. Richard Stevens博士独自编写。《UNIX网络编程》(第1卷)(套接口API第3版)是3版，由世界著名网络专家Bill Fenner和Andrew M. Rudoff执笔，根据近几年网络技术的发展，对上一版进行全面修订，增添了IPv6的更新过的信息、SCTP协议和密钥管理套接口的内容，删除了X/Open传输接口的内容。</p>
+<p>《UNIX网络编程》(第1卷)(套接口API第3版)内容详尽且具权威性，几乎每章都提供精选的习题，是计算机和网络专业高年级本科生和研究生的首选教材，《UNIX网络编程》(第1卷)(套接口API第3版)也可作为网络研究和开发人员的自学教材和参考书。</p>
+<h3 id="精通正则表达式"><a href="#精通正则表达式" class="headerlink" title="精通正则表达式"></a>精通正则表达式</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s2697984.jpg" alt="精通正则表达式"></p>
+<h4 id="信息-1"><a href="#信息-1" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] Jeffrey E·F·Friedl </p>
+<p>出版社: 电子工业出版社 </p>
+<p>副标题: 第3版 </p>
+<p>原作名: Mastering regular expressions </p>
+<p>译者: 余晟 </p>
+<p>出版年: 2007 </p>
+<p>页数: 515 </p>
+<p>定价: 75 </p>
+<p>装帧: 平装 </p>
+<p>丛书: O’reilly系列 </p>
+<p>ISBN: 9787121046841</p>
+<p>豆瓣评分: 8.9</p>
+<h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><p>随着互联网的迅速发展，几乎所有工具软件和程序语言都支持的正则表达式也变得越来越强大和易于使用。本书是讲解正则表达式的经典之作。本书主要讲解了正则表达式的特性和流派、匹配原理、优化原则、实用诀窍以及调校措施，并详细介绍了正则表达式在Perl、Java、.NET、PHP中的用法。</p>
+<p>本书自第1 版开始着力于教会读者“以正则表达式来思考”，来让读者真正“精通”正则表达式。该版对PHP的相关内容、Java1.5和Java1.6的新特性作了可观的扩充讲解。任何有机会使用正则表达式的读者都会从中获益匪浅。</p>
+<h3 id="算法新解"><a href="#算法新解" class="headerlink" title="算法新解"></a>算法新解</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s29205454.jpg" alt="算法新解"></p>
+<h4 id="信息-2"><a href="#信息-2" class="headerlink" title="信息"></a>信息</h4><p>作者: 刘新宇 </p>
+<p>出版社: 人民邮电出版社 </p>
+<p>出版年: 2016-12-1 </p>
+<p>页数: 566 </p>
+<p>定价: CNY 99.00 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787115440358</p>
+<p>豆瓣评分: 9.5</p>
+<h4 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h4><p>本书分4 部分，同时用函数式和传统方法介绍主要的基本算法和数据结构。数据结构部分包括二叉树、红黑树、AVL 树、Trie、Patricia、后缀树、B 树、二叉堆、二项式堆、斐波那契堆、配对堆、队列、序列等；基本算法部分包括各种排序算法、序列搜索算法、字符串匹配算法（KMP 等）、深度优先与广度优先搜索算法、贪心算法以及动态规划。</p>
+<p>本书适合软件开发人员、编程和算法爱好者，以及高校学生阅读参考。</p>
+<h3 id="“笨办法”学Python"><a href="#“笨办法”学Python" class="headerlink" title="“笨办法”学Python"></a>“笨办法”学Python</h3><p><img src="https://img1.doubanio.com/view/subject/l/public/s27836847.jpg" alt="&quot;笨办法&quot;学Python"></p>
+<h4 id="信息-3"><a href="#信息-3" class="headerlink" title="信息"></a>信息</h4><p>作者:  [爱尔兰] 肖 </p>
+<p>出版社: 人民邮电出版社 </p>
+<p>原作名: Learn Python the Hard </p>
+<p>Way: A Very Simple Introduction to the Terrifyingly Beautiful World of Computers and Code (3rd Edition) </p>
+<p>译者: 王巍巍 </p>
+<p>出版年: 2014-11-1 </p>
+<p>页数: 249 </p>
+<p>定价: CNY 49.00 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787115350541</p>
+<p>豆瓣评分: 7.9</p>
+<h4 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h4><p>本书是一本Python入门书籍，适合对计算机了解不多，没有学过编程，但对编程感兴趣的读者学习使用。这本书以习题的方式引导读者一步一步学习编程，从简单的打印一直讲到完整项目的实现，让初学者从基础的编程技术入手，最终体验到软件开发的基本过程。</p>
+<p>本书结构非常简单，共包括52个习题，其中26个覆盖了输入/输出、变量和函数三个主题，另外26个覆盖了一些比较高级的话题，如条件判断、循环、类和对象、代码测试及项目的实现等。每一章的格式基本相同，以代码习题开始，按照说明编写代码，运行并检查结果，然后再做附加练习。</p>
+<p>Zed Shaw完善了这个堪称世上最好的Python学习系统。只要跟着学习，你就会和迄今为止数十万Zed教过的初学者一样获得成功。</p>
+<p>在这本书中，你将通过完成52个精心设计的习题来学会Python。阅读这些习题，把习题的代码精确地写出来（禁止复制和粘贴！），…</p>
+<p>(展开全部)</p>
+<p>本书是一本Python入门书籍，适合对计算机了解不多，没有学过编程，但对编程感兴趣的读者学习使用。这本书以习题的方式引导读者一步一步学习编程，从简单的打印一直讲到完整项目的实现，让初学者从基础的编程技术入手，最终体验到软件开发的基本过程。</p>
+<p>本书结构非常简单，共包括52个习题，其中26个覆盖了输入/输出、变量和函数三个主题，另外26个覆盖了一些比较高级的话题，如条件判断、循环、类和对象、代码测试及项目的实现等。每一章的格式基本相同，以代码习题开始，按照说明编写代码，运行并检查结果，然后再做附加练习。</p>
+<p>Zed Shaw完善了这个堪称世上最好的Python学习系统。只要跟着学习，你就会和迄今为止数十万Zed教过的初学者一样获得成功。</p>
+<p>在这本书中，你将通过完成52个精心设计的习题来学会Python。阅读这些习题，把习题的代码精确地写出来（禁止复制和粘贴！），修正你的错误，观察程序的运行。在这个过程中，你将了解软件是如何工作的，好的程序看起来是什么样子，怎样阅读、编写、思考代码，以及如何用专业程序员的技巧来找出并修正错误。最重要的是，你将学到下面这些编写优秀的Python软件必需的初始技能。</p>
+<p>这本书会让你的每一分钟投入都有回报。Python是世界上最强大、最受欢迎的编程语言之一，很快你就会成为一名Python程序员。</p>
+<p>你还可以看Zed的视频！随书附赠的DVD中包含5个多小时激情挥洒的教学内容：一部完整的Python视频教程！</p>
+<h3 id="计算机科学概论（第11版）"><a href="#计算机科学概论（第11版）" class="headerlink" title="计算机科学概论（第11版）"></a>计算机科学概论（第11版）</h3><p><img src="https://img1.doubanio.com/view/subject/l/public/s6950239.jpg" alt="计算机科学概论（第11版）"></p>
+<h4 id="信息-4"><a href="#信息-4" class="headerlink" title="信息"></a>信息</h4><p>作者: J. Glenn Brookshear </p>
+<p>出版社: 人民邮电出版社 </p>
+<p>原作名: Computer </p>
+<p>Science: An Overview </p>
+<p>译者: 刘艺 / 肖成海 / 马小会 / 毛倩倩 </p>
+<p>出版年: 2011-10-1 </p>
+<p>页数: 411 </p>
+<p>定价: 69.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 图灵计算机科学丛书 </p>
+<p>ISBN: 9787115261960</p>
+<p>豆瓣评分: 9.3</p>
+<h4 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h4><p>本书多年来一直深受世界各国高校师生的欢迎，是美国哈佛大学、麻省理工学院、普林斯顿大学、加州大学伯克利分校等许多著名大学的首选教材，对我国的高校教学也产生了广泛影响。</p>
+<p>本 书以历史眼光，从发展的角度、当前的水平以及现阶段的研究方向等几个方面，全景式描绘了计算机科学各个子学科的主要领域。在内容编排上，本书很好地兼顾了 学科广度和主题深度，把握了最新的技术趋势。本书用算法、数据抽象等核心思想贯穿各个主题，并且充分展现了历史背景、发展历程和新的技术趋势，培养读者的 大局观，为其今后深入学习其他计算机专业课程打下坚实的基础。</p>
+<p>本书深入浅出、图文并茂，内容引人入胜，极易引发读者的兴趣，绝无一般教材的枯燥和晦涩。此外，本书的教学手段多样、习题丰富，并且每章后都附有与本章内容相关的社会现实问题供读者思考和讨论，这些都很好地体现了作者强调培养学生分析问题能力的教学理念…</p>
+<p>(展开全部)</p>
+<p>本书多年来一直深受世界各国高校师生的欢迎，是美国哈佛大学、麻省理工学院、普林斯顿大学、加州大学伯克利分校等许多著名大学的首选教材，对我国的高校教学也产生了广泛影响。</p>
+<p>本 书以历史眼光，从发展的角度、当前的水平以及现阶段的研究方向等几个方面，全景式描绘了计算机科学各个子学科的主要领域。在内容编排上，本书很好地兼顾了 学科广度和主题深度，把握了最新的技术趋势。本书用算法、数据抽象等核心思想贯穿各个主题，并且充分展现了历史背景、发展历程和新的技术趋势，培养读者的 大局观，为其今后深入学习其他计算机专业课程打下坚实的基础。</p>
+<p>本书深入浅出、图文并茂，内容引人入胜，极易引发读者的兴趣，绝无一般教材的枯燥和晦涩。此外，本书的教学手段多样、习题丰富，并且每章后都附有与本章内容相关的社会现实问题供读者思考和讨论，这些都很好地体现了作者强调培养学生分析问题能力的教学理念。</p>
+<p>第11版新增了手持移动设备，特别是智能手机的相关内容，主要涉及第3章（操作系统）、第4章（组网）、第6章（编程语言）和第7章（软件工程）中。此外，书中还对软件所有权和责任、训练人工神经网络等许多相关内容做了更新，以反映最新技术面貌。</p>
+<h3 id="程序设计实践"><a href="#程序设计实践" class="headerlink" title="程序设计实践"></a>程序设计实践</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s24431930.jpg" alt="程序设计实践"></p>
+<h4 id="信息-5"><a href="#信息-5" class="headerlink" title="信息"></a>信息</h4><p>作者: [美] Brian W. Kernighan / Rob Pike </p>
+<p>出版社: 机械工业出版社 </p>
+<p>原作名: The Practice of Programming </p>
+<p>译者: 裘宗燕 </p>
+<p>出版年: 2000-8 </p>
+<p>页数: 221 </p>
+<p>定价: 20.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 计算机科学丛书 </p>
+<p>ISBN: 9787111075738</p>
+<p>豆瓣评分: 9.1</p>
+<h4 id="简介-5"><a href="#简介-5" class="headerlink" title="简介"></a>简介</h4><p>这本书从排错、测试、性能、可移植性、设计、界面、风格和记法等方面，讨论了程序设计中实际的、又是非常深刻和具有广泛意义的思想、技术和方法。</p>
+<h3 id="构建之法"><a href="#构建之法" class="headerlink" title="构建之法"></a>构建之法</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s27426301.jpg" alt="构建之法"></p>
+<h4 id="信息-6"><a href="#信息-6" class="headerlink" title="信息"></a>信息</h4><p>作者:  邹欣 </p>
+<p>出版社: 人民邮电出版社 </p>
+<p>出品方: Just-pub </p>
+<p>副标题: 现代软件工程 </p>
+<p>出版年: 2014-9 </p>
+<p>页数: 396 </p>
+<p>定价: 49.00元 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787115369161</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-6"><a href="#简介-6" class="headerlink" title="简介"></a>简介</h4><p>内容简介：</p>
+<p>软件工程牵涉的范围很广, 同时也是一般院校的同学反映比较空洞乏味的课程。 但是软件工程的技术对于投身IT 产业的学生来说是非常重要的。作者邹欣有长达20年的一线软件开发经验，他利用业余时间在数所高校进行了长达6年的软件工程教学实践，总结出了在16周的时间内让 同学们通过 “做中学 (Learning By Doing)” 掌握实用的软件工程技术的教学计划，并得到高校师生的积极反馈。在此基础上，作者对软件工程的各个知识点和技能要求进行了系统性整理，形成教材。</p>
+<p>本书共分17章，对照美国ACM/IEEE2013年新出版的计算机科学教学指导（Computer ScienceCurricula 2013）中的软件工程相关部分，这本教材覆盖了其中大多数Core-Tier1和Core-Tier2的内容。可以说，全书对软件工程内容的覆盖不逊于任何一本现行…</p>
+<p>(展开全部)</p>
+<p>内容简介：</p>
+<p>软件工程牵涉的范围很广, 同时也是一般院校的同学反映比较空洞乏味的课程。 但是软件工程的技术对于投身IT 产业的学生来说是非常重要的。作者邹欣有长达20年的一线软件开发经验，他利用业余时间在数所高校进行了长达6年的软件工程教学实践，总结出了在16周的时间内让 同学们通过 “做中学 (Learning By Doing)” 掌握实用的软件工程技术的教学计划，并得到高校师生的积极反馈。在此基础上，作者对软件工程的各个知识点和技能要求进行了系统性整理，形成教材。</p>
+<p>本书共分17章，对照美国ACM/IEEE2013年新出版的计算机科学教学指导（Computer ScienceCurricula 2013）中的软件工程相关部分，这本教材覆盖了其中大多数Core-Tier1和Core-Tier2的内容。可以说，全书对软件工程内容的覆盖不逊于任何一本现行的教材，同时讲述了业界最新实践方法。</p>
+<p>本书评论：</p>
+<p>推荐软件工程专业学子阅读，了解软件工程真正内涵，懂得“工程”二字真正含义，知道软件工程和计算机科学的区别。了解之后，就知道为何软件工程是就业含金量较高的行业了。</p>
+<p>——朝红阳（<a href="http://weibo.com/u/1794892070）/中山大学软件学院" target="_blank" rel="noopener">http://weibo.com/u/1794892070）/中山大学软件学院</a></p>
+<p>书中 设想了大量的场景“学”和“习”，并且用了大量的类比，非常生动有趣。这本教材也对软件工程课老师提出了更高的要求；对学生而言，同样面临着要付出怎样的努力才能学到“干货”的选择。</p>
+<p>——鞠小林（<a href="http://weibo.com/jukxy）/南通大学软件学院" target="_blank" rel="noopener">http://weibo.com/jukxy）/南通大学软件学院</a></p>
+<p>关于计算机科学与软件工程的差别？这是我们学生问的最多的，这下有解释啦！包括书中谈到的师生关系、软件工程师的职业发展、职业道德等，这些内容我上课时都可以用。</p>
+<p>——牛慧娟/华中科技大学软件学院</p>
+<p>面对在软件开发方面经验很少的学生，邹欣老师通过丰富生动的故事和隐喻帮助学生建立软件工程的思维习惯，通过严格扎实的动手训练与考核帮助学生总结归纳自己的“最佳实践经验”。读这本书，软件工程课不再枯燥沉闷，而是变得出乎意料的生动有趣。</p>
+<p>——王忠杰（<a href="http://weibo.com/travellingwithme）/哈尔滨工业大学计算机科学与技术学院" target="_blank" rel="noopener">http://weibo.com/travellingwithme）/哈尔滨工业大学计算机科学与技术学院</a></p>
+<p>读完《构建之法——现代软件工程》，不禁惊叹，软件工程的书还可以这样写！像团队和流程、敏捷流程、需求分析、设计与实现这些章节我看了又看，看完之后不禁拍大腿（书里说的“拍脑门、拍胸脯、拍屁股”的三拍有点不全，还差“拍大腿”）：为什么邹欣老师会把原本无趣的问题写得这么吸引人？我深深地感觉到，不会讲故事的软件工程老师不是好老师！这本书给我最大的感受是，作者能把一个个鲜活的例子（或故事）与软件工程的相关问题恰到好处地结合起来，让软件工程的理论和方法更好地落地。</p>
+<p>——王赞（<a href="http://weibo.com/scswz）/天津大学软件学院" target="_blank" rel="noopener">http://weibo.com/scswz）/天津大学软件学院</a></p>
+<p>将对软件工程思想的理解内化为软件工程师的职业习惯，是软件工程教学的核心目标，本书的实验设计恰恰非常有助于这一内化过程。个人项目、两人项目和团队项目由易到难，循序渐进，不断总结。我在教学中借鉴这一思路，从学生较为熟悉的编程训练入手，以范例演示基本编码规范、 No Design时的代码、经过基</p>
+<p>本Modularity (also called separation of concerns)设计的代码、writing code to make it reusable on future projects以及一些特殊的接口设计……从编码实践中理解软件工程思想，就会跳出纸上谈兵的框框。</p>
+<p>——孟宁（<a href="http://staff.ustc.edu.cn/~mengning/，http://weibo.com/mengning997" target="_blank" rel="noopener">http://staff.ustc.edu.cn/~mengning/，http://weibo.com/mengning997</a> ）</p>
+<p>/中国科技大学软件学院</p>
+<p>软件工程在大学是最难讲，也是最容易讲的一门课，容易在这门课涵盖的内容和外延特别丰富，这些内容学生基本没概念，短期也无法落到实处来验证有用没用，所以老师可以大讲特讲，人畜无害；难在你要在学生一片空白（没有很强的代码能力、没有团队概念、没有项目经验）的情况下去让他们懂得这些东西。在我认识的人中，能有丰富的项目经验又愿意花时间在教学实践上，最终能把各种知识理论体系化的人寥寥无几。邹欣老师恰好这几点都具备。快速翻完整本书，最大的感受是这本书出版得恰逢其时，传统的软件工程教材早就该翻新了！</p>
+<p>——徐亚波（<a href="http://ss.sysu.edu.cn/~xyb，http://weibo.com/arber）/中山大学软件学院" target="_blank" rel="noopener">http://ss.sysu.edu.cn/~xyb，http://weibo.com/arber）/中山大学软件学院</a></p>
+<h3 id="深入理解Java虚拟机（第2版）"><a href="#深入理解Java虚拟机（第2版）" class="headerlink" title="深入理解Java虚拟机（第2版）"></a>深入理解Java虚拟机（第2版）</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s27458236.jpg" alt="深入理解Java虚拟机（第2版）"></p>
+<h4 id="信息-7"><a href="#信息-7" class="headerlink" title="信息"></a>信息</h4><p>作者:  周志明 </p>
+<p>出版社: 机械工业出版社 </p>
+<p>副标题: JVM高级特性与最佳实践 </p>
+<p>出版年: 2013-9-1 </p>
+<p>页数: 433 </p>
+<p>定价: 79.00元 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787111421900</p>
+<p>豆瓣评分: 8.9</p>
+<h4 id="简介-7"><a href="#简介-7" class="headerlink" title="简介"></a>简介</h4><p>《深入理解Java虚拟机:JVM高级特性与最佳实践(第2版)》内容简介：第1版两年内印刷近10次，4家网上书店的评论近4?000条，98%以上的评论全部为5星级的好评，是整个Java图书领域公认的经典著作和超级畅销书，繁体版在台湾也十分受欢迎。第2版在第1版的基础上做了很大的改进：根据最新的JDK 1.7对全书内容进行了全面的升级和补充；增加了大量处理各种常见JVM问题的技巧和最佳实践；增加了若干与生产环境相结合的实战案例；对第1版中的错误和不足之处的修正；等等。第2版不仅技术更新、内容更丰富，而且实战性更强。</p>
+<p>《深入理解Java虚拟机:JVM高级特性与最佳实践(第2版)》共分为五大部分，围绕内存管理、执行子系统、程序编译与优化、高效并发等核心主题对JVM进行了全面而深入的分析，深刻揭示了JVM的工作原理。</p>
+<p>第一部分从宏观的角度介绍了整个Java技术…</p>
+<p>(展开全部)</p>
+<p>《深入理解Java虚拟机:JVM高级特性与最佳实践(第2版)》内容简介：第1版两年内印刷近10次，4家网上书店的评论近4?000条，98%以上的评论全部为5星级的好评，是整个Java图书领域公认的经典著作和超级畅销书，繁体版在台湾也十分受欢迎。第2版在第1版的基础上做了很大的改进：根据最新的JDK 1.7对全书内容进行了全面的升级和补充；增加了大量处理各种常见JVM问题的技巧和最佳实践；增加了若干与生产环境相结合的实战案例；对第1版中的错误和不足之处的修正；等等。第2版不仅技术更新、内容更丰富，而且实战性更强。</p>
+<p>《深入理解Java虚拟机:JVM高级特性与最佳实践(第2版)》共分为五大部分，围绕内存管理、执行子系统、程序编译与优化、高效并发等核心主题对JVM进行了全面而深入的分析，深刻揭示了JVM的工作原理。</p>
+<p>第一部分从宏观的角度介绍了整个Java技术体系、Java和JVM的发展历程、模块化，以及JDK的编译，这对理解书中后面内容有重要帮助。</p>
+<p>第二部分讲解了JVM的自动内存管理，包括虚拟机内存区域的划分原理以及各种内存溢出异常产生的原因；常见的垃圾收集算法以及垃圾收集器的特点和工作原理；常见虚拟机监控与故障处理工具的原理和使用方法。</p>
+<p>第三部分分析了虚拟机的执行子系统，包括类文件结构、虚拟机类加载机制、虚拟机字节码执行引擎。</p>
+<p>第四部分讲解了程序的编译与代码的优化，阐述了泛型、自动装箱拆箱、条件编译等语法糖的原理；讲解了虚拟机的热点探测方法、HotSpot的即时编译器、编译触发条件，以及如何从虚拟机外部观察和分析JIT编译的数据和结果；</p>
+<p>第五部分探讨了Java实现高效并发的原理，包括JVM内存模型的结构和操作；原子性、可见性和有序性在Java内存模型中的体现；先行发生原则的规则和使用；线程在Java语言中的实现原理；虚拟机实现高效并发所做的一系列锁优化措施。</p>
+<h3 id="深入浅出Node-js"><a href="#深入浅出Node-js" class="headerlink" title="深入浅出Node.js"></a>深入浅出Node.js</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s27269296.jpg" alt="深入浅出Node.js"></p>
+<h4 id="信息-8"><a href="#信息-8" class="headerlink" title="信息"></a>信息</h4><p>作者:  朴灵 </p>
+<p>出版社: 人民邮电出版社 </p>
+<p>出版年: 2013-12-1 </p>
+<p>页数: 332 </p>
+<p>定价: CNY 69.00 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 图灵原创 </p>
+<p>ISBN: 9787115335500</p>
+<p>豆瓣评分: 8.5</p>
+<h4 id="简介-8"><a href="#简介-8" class="headerlink" title="简介"></a>简介</h4><p>本书从不同的视角介绍了 Node 内在的特点和结构。由首章Node 介绍为索引，涉及Node 的各个方面，主要内容包含模块机制的揭示、异步I/O 实现原理的展现、异步编程的探讨、内存控制的介绍、二进制数据Buffer 的细节、Node 中的网络编程基础、Node 中的Web 开发、进程间的消息传递、Node 测试以及通过Node 构建产品需要的注意事项。最后的附录介绍了Node 的安装、调试、编码规范和NPM 仓库等事宜。</p>
+<p>本书适合想深入了解 Node 的人员阅读。</p>
+<h3 id="Head-First-Java（第二版·中文版）"><a href="#Head-First-Java（第二版·中文版）" class="headerlink" title="Head First Java（第二版·中文版）"></a>Head First Java（第二版·中文版）</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s2171906.jpg" alt="Head First Java（第二版·中文版）"></p>
+<h4 id="信息-9"><a href="#信息-9" class="headerlink" title="信息"></a>信息</h4><p>作者: Kathy Sierra,Bert Bates 著 / 杨尊一 编译 张然等 改编 </p>
+<p>出版社: 中国电力出版社 </p>
+<p>译者: 杨尊一 </p>
+<p>出版年: 2007-2 </p>
+<p>页数: 600 </p>
+<p>定价: 79.00元 </p>
+<p>装帧: 16开 </p>
+<p>丛书: O’Reilly深入浅出系列 </p>
+<p>ISBN: 9787508344980</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-9"><a href="#简介-9" class="headerlink" title="简介"></a>简介</h4><p>《Head First Java》是本完整的面向对象（object-oriented，OO）程序设计和Java的学习指导。此书是根据学习理论所设计的，让你可以从学习程序语言的基础开始一直到包括线程、网络与分布式程序等项目。最重要的，你会学会如何像个面向对象开发者一样去思考。</p>
+<p>而且不只是读死书，你还会玩游戏、拼图、解谜题以及以意想不到的方式与Java交互。在这些活动中，你会写出一堆真正的Java程序，包括了一个船舰炮战游戏和一个网络聊天程序。</p>
+<p>Head First系列的图文并茂学习方式能让你快速地在脑海中掌握住知识。敞开心胸准备好学习这些关键性的主题：</p>
+<p>*Java程序语言</p>
+<p>*面向对象程序开发</p>
+<p>*Swing图形化接口</p>
+<p>*使用Java API函数库</p>
+<p>*编写、测试与布署应用程序</p>
+<p>*处理异常</p>
+<p>*多线程</p>
+<p>*网络程序设计</p>
+<p>*集合与泛型</p>
+<p>如果你想要看“一本正经”的书…</p>
+<p>(展开全部)</p>
+<p>《Head First Java》是本完整的面向对象（object-oriented，OO）程序设计和Java的学习指导。此书是根据学习理论所设计的，让你可以从学习程序语言的基础开始一直到包括线程、网络与分布式程序等项目。最重要的，你会学会如何像个面向对象开发者一样去思考。</p>
+<p>而且不只是读死书，你还会玩游戏、拼图、解谜题以及以意想不到的方式与Java交互。在这些活动中，你会写出一堆真正的Java程序，包括了一个船舰炮战游戏和一个网络聊天程序。</p>
+<p>Head First系列的图文并茂学习方式能让你快速地在脑海中掌握住知识。敞开心胸准备好学习这些关键性的主题：</p>
+<p>*Java程序语言</p>
+<p>*面向对象程序开发</p>
+<p>*Swing图形化接口</p>
+<p>*使用Java API函数库</p>
+<p>*编写、测试与布署应用程序</p>
+<p>*处理异常</p>
+<p>*多线程</p>
+<p>*网络程序设计</p>
+<p>*集合与泛型</p>
+<p>如果你想要看“一本正经”的书，去找其他的。但如果你真地想要好好地学习Java，你会需要《Head First Java》。这本书可是Amazon编辑推荐的十大好书之一！</p>
+<h3 id="游戏引擎架构"><a href="#游戏引擎架构" class="headerlink" title="游戏引擎架构"></a>游戏引擎架构</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s27215120.jpg" alt="游戏引擎架构"></p>
+<h4 id="信息-10"><a href="#信息-10" class="headerlink" title="信息"></a>信息</h4><p>作者: [美] Jason Gregory (杰森.格雷戈瑞) </p>
+<p>出版社: 电子工业出版社 </p>
+<p>原作名: Game Engine Architecture </p>
+<p>译者: 叶劲峰 </p>
+<p>出版年: 2014-1 </p>
+<p>页数: 800 </p>
+<p>定价: 128.00元 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787121222887</p>
+<p>豆瓣评分: 9.0</p>
+<h4 id="简介-10"><a href="#简介-10" class="headerlink" title="简介"></a>简介</h4><p>《游戏引擎架构》同时涵盖游戏引擎软件开发的理论及实践，并对多方面的题目进行探讨。本书讨论到的概念及技巧实际应用于现实中的游戏工作室，如艺电及顽皮狗。虽然书中采用的例子通常依据一些专门的技术，但是讨论范围远超于某个引擎或API。文中的参考及引用也非常有用，可让读者继续深入游戏开发过程的任何特定方向。</p>
+<p>《游戏引擎架构》为一个大学程度的游戏编程课程而编写，但也适合软件工程师、业余爱好者、自学游戏程序员，以及游戏产业的从业人员。通过阅读《游戏引擎架构》，资历较浅的游戏工程师可以巩固他们所学的游戏技术及引擎架构的知识，专注某一领域的资深程序员也能从本书更为全面的介绍中获益。</p>
+<p>內容包括：</p>
+<ul>
+<li><p>游戏开发中的大规模C++软件架构</p>
+</li>
+<li><p>游戏编程所需的数学</p>
+</li>
+<li><p>供调试、源代码控制及性能剖析的游戏开发工具</p>
+</li>
+<li><p>引擎基础系统、渲染、碰撞、物理、角色动画、游戏世界对象模型等引…</p>
+</li>
+</ul>
+<p>(展开全部)</p>
+<p>《游戏引擎架构》同时涵盖游戏引擎软件开发的理论及实践，并对多方面的题目进行探讨。本书讨论到的概念及技巧实际应用于现实中的游戏工作室，如艺电及顽皮狗。虽然书中采用的例子通常依据一些专门的技术，但是讨论范围远超于某个引擎或API。文中的参考及引用也非常有用，可让读者继续深入游戏开发过程的任何特定方向。</p>
+<p>《游戏引擎架构》为一个大学程度的游戏编程课程而编写，但也适合软件工程师、业余爱好者、自学游戏程序员，以及游戏产业的从业人员。通过阅读《游戏引擎架构》，资历较浅的游戏工程师可以巩固他们所学的游戏技术及引擎架构的知识，专注某一领域的资深程序员也能从本书更为全面的介绍中获益。</p>
+<p>內容包括：</p>
+<ul>
+<li><p>游戏开发中的大规模C++软件架构</p>
+</li>
+<li><p>游戏编程所需的数学</p>
+</li>
+<li><p>供调试、源代码控制及性能剖析的游戏开发工具</p>
+</li>
+<li><p>引擎基础系统、渲染、碰撞、物理、角色动画、游戏世界对象模型等引擎子系统</p>
+</li>
+<li><p>多平台游戏引擎</p>
+</li>
+<li><p>多处理器环境下的游戏编程</p>
+</li>
+<li><p>工作管道及游戏资产数据库</p>
+</li>
+</ul>
+<h3 id="编写可读代码的艺术"><a href="#编写可读代码的艺术" class="headerlink" title="编写可读代码的艺术"></a>编写可读代码的艺术</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s10328621.jpg" alt="编写可读代码的艺术"></p>
+<h4 id="信息-11"><a href="#信息-11" class="headerlink" title="信息"></a>信息</h4><p>作者: Boswell, D. / Foucher, T. </p>
+<p>出版社: 机械工业出版社 </p>
+<p>原作名: The Art of Readable Code </p>
+<p>译者: 尹哲 / 郑秀雯 </p>
+<p>出版年: 2012-7-10 </p>
+<p>页数: 240 </p>
+<p>定价: 59.00元 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787111385448</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-11"><a href="#简介-11" class="headerlink" title="简介"></a>简介</h4><p>细节决定成败，思路清晰、言简意赅的代码让程序员一目了然；而格式凌乱、拖沓冗长的代码让程序员一头雾水。除了可以正确运行以外，优秀的代码必须具备良好的可读性，编写的代码要使其他人能在最短的时间内理解才行。本书旨在强调代码对人的友好性和可读性。</p>
+<p>本书关注编码的细节，总结了很多提高代码可读性的小技巧，看似都微不足道，但是对于整个软件系统的开发而言，它们与宏观的架构决策、设计思想、指导原则同样重要。编码不仅仅只是一种技术，也是一门艺术，编写可读性高的代码尤其如此。如果你要成为一位优秀的程序员，要想开发出高质量的软件系统，必须从细处着手，做到内外兼修，本书将为你提供有效的指导。</p>
+<p>主要内容：</p>
+<p>简化命名、注释和格式的方法，使每行代码都言简意赅。</p>
+<p>·梳理程序中的循环、逻辑和变量来减小复杂度并理清思路。</p>
+<p>·在函数级别解决问题，例如重新组织代码块，使其一次只做一件事。</p>
+<p>·…</p>
+<p>(展开全部)</p>
+<p>细节决定成败，思路清晰、言简意赅的代码让程序员一目了然；而格式凌乱、拖沓冗长的代码让程序员一头雾水。除了可以正确运行以外，优秀的代码必须具备良好的可读性，编写的代码要使其他人能在最短的时间内理解才行。本书旨在强调代码对人的友好性和可读性。</p>
+<p>本书关注编码的细节，总结了很多提高代码可读性的小技巧，看似都微不足道，但是对于整个软件系统的开发而言，它们与宏观的架构决策、设计思想、指导原则同样重要。编码不仅仅只是一种技术，也是一门艺术，编写可读性高的代码尤其如此。如果你要成为一位优秀的程序员，要想开发出高质量的软件系统，必须从细处着手，做到内外兼修，本书将为你提供有效的指导。</p>
+<p>主要内容：</p>
+<p>简化命名、注释和格式的方法，使每行代码都言简意赅。</p>
+<p>·梳理程序中的循环、逻辑和变量来减小复杂度并理清思路。</p>
+<p>·在函数级别解决问题，例如重新组织代码块，使其一次只做一件事。</p>
+<p>·编写有效的测试代码，使其全面而简洁，同时可读性更高。</p>
+<h3 id="JavaScript-DOM编程艺术-（第2版）"><a href="#JavaScript-DOM编程艺术-（第2版）" class="headerlink" title="JavaScript DOM编程艺术 （第2版）"></a>JavaScript DOM编程艺术 （第2版）</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s4677623.jpg" alt="JavaScript DOM编程艺术 （第2版）"></p>
+<h4 id="信息-12"><a href="#信息-12" class="headerlink" title="信息"></a>信息</h4><p>作者: [英] Jeremy Keith / [加] Jeffrey Sambells </p>
+<p>出版社: 人民邮电出版社 </p>
+<p>原作名: DOM </p>
+<p>Scripting: Web Design with JavaScript and the Document Object Model </p>
+<p>译者: 杨涛 / 王建桥 / 杨晓云 等 </p>
+<p>出版年: 2011-4 </p>
+<p>页数: 300 </p>
+<p>定价: 49.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 图灵程序设计丛书 </p>
+<p>ISBN: 9787115249999</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-12"><a href="#简介-12" class="headerlink" title="简介"></a>简介</h4><p>JavaScript是Web开发中最重要的一门语言，它强大而优美。无论是桌面开发，还是移动应用。JavaScript都是必须掌握的技术。W3C的DOM标准是开发Web应用的基石。已经得到所有现代浏览器的支持，这使得跨平台Web开发成了一件轻松惬意的事。</p>
+<p>本书是超级畅销书的升级版，由倡导Web标准的领军人物执笔，揭示了前端开发的真谛，是学习JavaScript和DOM开发的必读之作。</p>
+<p>本 书在简洁明快地讲述JavaScript和DOM的基本知识之后，通过几个实例演示了专业水准的网页开发技术，透彻阐述了平稳退化等一批至关重要的 JavaScript编程原则和最佳实践，并全面探讨了HTML5以及jQuery等JavaScript库。读者将看到JavaScript、 HTML5和CSS如何协作来创建易用的、与标准兼容的Web设计，掌握使用JavaScript…</p>
+<p>(展开全部)</p>
+<p>JavaScript是Web开发中最重要的一门语言，它强大而优美。无论是桌面开发，还是移动应用。JavaScript都是必须掌握的技术。W3C的DOM标准是开发Web应用的基石。已经得到所有现代浏览器的支持，这使得跨平台Web开发成了一件轻松惬意的事。</p>
+<p>本书是超级畅销书的升级版，由倡导Web标准的领军人物执笔，揭示了前端开发的真谛，是学习JavaScript和DOM开发的必读之作。</p>
+<p>本 书在简洁明快地讲述JavaScript和DOM的基本知识之后，通过几个实例演示了专业水准的网页开发技术，透彻阐述了平稳退化等一批至关重要的 JavaScript编程原则和最佳实践，并全面探讨了HTML5以及jQuery等JavaScript库。读者将看到JavaScript、 HTML5和CSS如何协作来创建易用的、与标准兼容的Web设计，掌握使用JavaScript和DOM通过客户端动态效果和用户控制的动画来加强 Web页面的必备技术；同时，还将对如何利用库提高开发效率有全面深入的理解。</p>
+<h3 id="The-Linux-Programming-Interface"><a href="#The-Linux-Programming-Interface" class="headerlink" title="The Linux Programming Interface"></a>The Linux Programming Interface</h3><p><img src="https://img1.doubanio.com/view/subject/l/public/s9029069.jpg" alt="The Linux Programming Interface"></p>
+<h4 id="信息-13"><a href="#信息-13" class="headerlink" title="信息"></a>信息</h4><p>作者: Michael Kerrisk </p>
+<p>出版社: No Starch Press </p>
+<p>副标题: A Linux and UNIX System Programming Handbook </p>
+<p>出版年: 2010-11-6 </p>
+<p>页数: 1552 </p>
+<p>定价: GBP 79.99 </p>
+<p>装帧: Hardcover </p>
+<p>ISBN: 9781593272203</p>
+<p>豆瓣评分: 9.4</p>
+<h4 id="简介-13"><a href="#简介-13" class="headerlink" title="简介"></a>简介</h4><p>The Linux Programming Interface describes the Linux API (application programming interface)-the system calls, library functions, and other low-level interfaces that are used, directly or indirectly, by every program that runs on Linux. Programs that explicitly use these interfaces are commonly called system programs, and include applications such as shells, editors, windowing s…</p>
+<p>(展开全部)</p>
+<p>The Linux Programming Interface describes the Linux API (application programming interface)-the system calls, library functions, and other low-level interfaces that are used, directly or indirectly, by every program that runs on Linux. Programs that explicitly use these interfaces are commonly called system programs, and include applications such as shells, editors, windowing systems, terminal emulators, file managers, compilers, database management systems, virtual machines, network servers, and much of the other software that is employed on a daily basis on Linux systems. Extensively indexed and heavily cross-referenced, The Linux Programming Interface is both an introductory guide for readers new to the topic of system programming, and a comprehensive reference for experienced system programmers. Although this book goes into detail on a wealth of Linux-specific features, it gives careful attention to contemporary Unix programming standards and to portability issues.</p>
+<h3 id="JAVA-2核心技术-卷Ⅰ"><a href="#JAVA-2核心技术-卷Ⅰ" class="headerlink" title="JAVA 2核心技术 卷Ⅰ"></a>JAVA 2核心技术 卷Ⅰ</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s1815135.jpg" alt="JAVA 2核心技术 卷Ⅰ"></p>
+<h4 id="信息-14"><a href="#信息-14" class="headerlink" title="信息"></a>信息</h4><p>作者: [美] 霍斯特曼 / [美] 科奈尔 </p>
+<p>出版社: 机械工业出版社 </p>
+<p>副标题: 基础知识 </p>
+<p>原作名: Core java 2. Volume I, Fundamentals </p>
+<p>译者: 叶乃文 / 邝劲筠 等 </p>
+<p>出版年: 2006-5 </p>
+<p>页数: 691 </p>
+<p>定价: 88.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: Sun公司核心技术丛书 </p>
+<p>ISBN: 9787111185239</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-14"><a href="#简介-14" class="headerlink" title="简介"></a>简介</h4><p>本书是Java技术经典参考书，多年畅销不衰，第7版在保留以前版本风格的基础上，涵盖Java2开发平台标准版J2SE5.0的基础知识，主要内容包括面各对象程序设计、反射与代理、接口与内部类、事件监听器模型、使用Swing UI工具箱进行图形用户界面设计，异常处理、流输入/输出和对象序列化、泛型程序设计等。</p>
+<p>本书内容翔实、深入浅出，附有大量程序实例，极具实用价值，是Java初学者和Java程序员的必备参考书。</p>
+<h3 id="编程人生"><a href="#编程人生" class="headerlink" title="编程人生"></a>编程人生</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s4549954.jpg" alt="编程人生"></p>
+<h4 id="信息-15"><a href="#信息-15" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] Peter Seibel </p>
+<p>出版社: 人民邮电出版社 </p>
+<p>副标题: 15位软件先驱访谈录 </p>
+<p>原作名: Coders at Work </p>
+<p>译者: 图灵俱乐部 </p>
+<p>出版年: 2011-1-1 </p>
+<p>页数: 473 </p>
+<p>定价: 79.00元 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787115239075</p>
+<p>豆瓣评分: 8.5</p>
+<h4 id="简介-15"><a href="#简介-15" class="headerlink" title="简介"></a>简介</h4><p>界顶尖的程序员是怎么走上编程道路的？</p>
+<p>他们的编程工作创造和改变了人类历史，在这一过程中都有哪些经验和教训？</p>
+<p>他们对计算机软件行业的过去、现在和未来有什么独到的看法和见解？</p>
+<p>他们对培养、发现、选拔、面试优秀的程序员有什么建议？</p>
+<p>放下手头的工作，听听这些软件先驱们的故事和建议，眼界可以更开阔，思路可以更清晰，方向可以更明确，人生可以更精彩。</p>
+<p>作者Peter Seibel采访了下面这15位世界级编程大师，本书是他在近80个小时的访谈录音基础上整理汇编而成的。</p>
+<p> Jamie Zawinski：Lisp程序员，XEmacs开发者，Netscape浏览器和Mozilla核心开发者。</p>
+<p> Brad Fitzpatrick：书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。</p>
+<p> Do…</p>
+<p>(展开全部)</p>
+<p>界顶尖的程序员是怎么走上编程道路的？</p>
+<p>他们的编程工作创造和改变了人类历史，在这一过程中都有哪些经验和教训？</p>
+<p>他们对计算机软件行业的过去、现在和未来有什么独到的看法和见解？</p>
+<p>他们对培养、发现、选拔、面试优秀的程序员有什么建议？</p>
+<p>放下手头的工作，听听这些软件先驱们的故事和建议，眼界可以更开阔，思路可以更清晰，方向可以更明确，人生可以更精彩。</p>
+<p>作者Peter Seibel采访了下面这15位世界级编程大师，本书是他在近80个小时的访谈录音基础上整理汇编而成的。</p>
+<p> Jamie Zawinski：Lisp程序员，XEmacs开发者，Netscape浏览器和Mozilla核心开发者。</p>
+<p> Brad Fitzpatrick：书中唯一的80后，LiveJournal和memcached开发者。现效力于Google。</p>
+<p> Douglas Crockford：JavaScript权威，JSON之父。现任Yahoo架构师。</p>
+<p> Brendan Eich：JavaScript之父。Mozilla公司CTO。</p>
+<p> Joshua Bloch：如果说Gosling是Java之父，那Bloch就是使Java真正成熟的教父，Java 2到5的核心架构师。现为Google首席Java架构师。</p>
+<p> Joe Armstrong：Erlang和OTP（开放电信平台）框架之父。</p>
+<p> Simon Peyton Jones：Haskell先驱。ACM会士。现为微软剑桥研究院研究员。</p>
+<p> Peter Norvig：Google研发总监。ACM会士。</p>
+<p> Guy Steele：精通多门语言，Common Lisp和Scheme开发者之一，Java语言规范作者之一，Common Lisp、Fortran、C、ECMAScript和Scheme等语言标准化委员会成员。高性能科学计算的语言Fortress设计者。ACM会士，美国工程院院士。Sun公司院士。</p>
+<p> Dan Ingalls：与Alan Kay合作开发了Smalltalk，是该语言的真正实现者。现为Sun公司杰出工程师。</p>
+<p> L. Peter Deutsch：JIT（即时）编译技术发明者之一，PostScript文件浏览器GhostScript的作者。ACM会士。Sun公司院士。</p>
+<p> Ken Thompson：图灵奖得主。Unix之父。UTF-8 Unicode编码设计者。</p>
+<p> Fran Allen：图灵奖第一位女得主。编译技术公认权威。IEEE院士，ACM会士，美国工程院院士。IBM院士。</p>
+<p> Bernie Cosell：Internet奠基人，ARPANET最早的路由计算机IMP设计者之一。</p>
+<p> Donald Knuth：多卷本经典巨著《计算机程序设计艺术》的作者，排版软件TeX的作者，图灵奖得主。</p>
+<h3 id="从Python开始学编程"><a href="#从Python开始学编程" class="headerlink" title="从Python开始学编程"></a>从Python开始学编程</h3><p><img src="https://img1.doubanio.com/view/subject/l/public/s29793528.jpg" alt="从Python开始学编程"></p>
+<h4 id="信息-16"><a href="#信息-16" class="headerlink" title="信息"></a>信息</h4><p>作者: Vamei </p>
+<p>出版社: 电子工业出版社 </p>
+<p>出版年: 2016-11-24 </p>
+<p>页数: 208 </p>
+<p>定价: CNY 49.00 </p>
+<p>装帧: 其他 </p>
+<p>ISBN: 9787121301995</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-16"><a href="#简介-16" class="headerlink" title="简介"></a>简介</h4><p>改编自Vamei博客的《Python快速教程》。本书以Python为样本，不仅介绍了编程的基本概念，还着重讲解编程语言的主流范式：面向过程、面向对象、面向函数。读者不仅可以轻松学会Python，以后再学习其他编程语言时也会更加容易。</p>
+<h3 id="软件随想录"><a href="#软件随想录" class="headerlink" title="软件随想录"></a>软件随想录</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s6103451.jpg" alt="软件随想录"></p>
+<h4 id="信息-17"><a href="#信息-17" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] Joel Spolsky </p>
+<p>出版社: 人民邮电出版社 </p>
+<p>副标题: 程序员部落酋长Joel谈软件 </p>
+<p>原作名: More Joel on Software </p>
+<p>译者: 阮一峰 </p>
+<p>出版年: 2009 </p>
+<p>页数: 292 </p>
+<p>定价: 49.00元 </p>
+<p>装帧: 平 </p>
+<p>丛书: 图灵程序设计丛书 </p>
+<p>ISBN: 9787115216342</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-17"><a href="#简介-17" class="headerlink" title="简介"></a>简介</h4><p>《软件随想录:程序员部落酋长Joel谈软件》是一部关于软件技术、人才、创业和企业管理的随想文集，作者以诙谐幽默的笔触将自己在软件行业的亲身感悟娓娓道来，观点新颖独特，内容简洁实用。全书分为 36讲，每一讲都是一个独立的专题。</p>
+<p>《软件随想录:程序员部落酋长Joel谈软件》从不同侧面满足了软件开发人员、设计人员、管理人员及从事软件相关工作的人员的学习与工作需要。</p>
+<h3 id="DOOM启世录"><a href="#DOOM启世录" class="headerlink" title="DOOM启世录"></a>DOOM启世录</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s1488795.jpg" alt="DOOM启世录"></p>
+<h4 id="信息-18"><a href="#信息-18" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] 大卫·卡什诺 </p>
+<p>出版社: 电子工业出版社 </p>
+<p>原作名: Masters of Doom </p>
+<p>译者: 孙振南 </p>
+<p>出版年: 2004-4 </p>
+<p>页数: 318 </p>
+<p>定价: 29.00元 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787505396814</p>
+<p>豆瓣评分: 9.1</p>
+<h4 id="简介-18"><a href="#简介-18" class="headerlink" title="简介"></a>简介</h4><p>由David Kushner 撰写之著作 《Master of DOOM》在 Amazon 和 eBook上的销售喜人。本书的中文版权由我公司拿到，将在2004年4月出版。本书忠实详尽地讲述了两个玩家是如何走上游戏之路，如何制作出迄今为止影响力最大的游戏作品–DOOM和Quake，以及他们为何在最辉煌的时候分道扬镳。本书是国内第一部游戏领域的传记。与所有传记一样，不同的读者能从中得到不同的体验：或是那游戏制作的背景内幕、光环之中的趣闻轶事、年少创业的梦想豪情、奋斗途上的汗水艰辛，亦或是那成名之后的势易情迁，独辟蹊径的商业模式、天下为公的黑客精神、众说纷纭的暴力问题…</p>
+<h3 id="与孩子一起学编程"><a href="#与孩子一起学编程" class="headerlink" title="与孩子一起学编程"></a>与孩子一起学编程</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s4518521.jpg" alt="与孩子一起学编程"></p>
+<h4 id="信息-19"><a href="#信息-19" class="headerlink" title="信息"></a>信息</h4><p>作者: [美] 桑德Warren Sande / Carter Sande </p>
+<p>出版社: 人民邮电出版社 </p>
+<p>原作名: Hello World！Computer Programming for Kids and Other Beginners </p>
+<p>译者: 苏金国 / 姚曜 等 </p>
+<p>出版年: 2010-11 </p>
+<p>页数: 388 </p>
+<p>定价: 65.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 图灵程序设计丛书 </p>
+<p>ISBN: 9787115239969</p>
+<p>豆瓣评分: 8.5</p>
+<h4 id="简介-19"><a href="#简介-19" class="headerlink" title="简介"></a>简介</h4><p>一本老少咸宜的编程入门奇书！一册在手，你完全可以带着自己的孩子，跟随Sande父子组合在轻松的氛围中熟悉那些编程概念，如内存、循环、输入和输出、数据结构和图形用户界面等。这些知识一点儿也不高深，听起来备感亲切，书中言语幽默风趣而不失真义，让学习过程充满乐趣。细心的作者还配上了孩子们都喜欢的可爱漫画和经过运行测试的程序示例，教你用最易编写和最易理解的Python语言，写出你梦想中的游戏程序。</p>
+<p>“Hello, World!我来了！”编程乐趣无穷，起点就在脚下，请引导你的孩子走进这奇妙的世界。无论是中小学生还是其他初学者，都可以跟随本书学习Python编程，并过渡到任何其他语言，重要的是你将学会思考问题和解决问题的方法。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/28/%E5%AE%89%E5%A6%AE%E5%AE%9D%E8%B4%9D-0/" rel="prev" title="安妮宝贝-0">
+      <i class="fa fa-chevron-left"></i> 安妮宝贝-0
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/28/%E7%BC%96%E7%A8%8B-0/" rel="next" title="编程-0">
+      编程-0 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#UNIX网络编程"><span class="nav-number">1.</span> <span class="nav-text">UNIX网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息"><span class="nav-number">1.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#精通正则表达式"><span class="nav-number">2.</span> <span class="nav-text">精通正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-1"><span class="nav-number">2.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-1"><span class="nav-number">2.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法新解"><span class="nav-number">3.</span> <span class="nav-text">算法新解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-2"><span class="nav-number">3.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-2"><span class="nav-number">3.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“笨办法”学Python"><span class="nav-number">4.</span> <span class="nav-text">“笨办法”学Python</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-3"><span class="nav-number">4.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-3"><span class="nav-number">4.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机科学概论（第11版）"><span class="nav-number">5.</span> <span class="nav-text">计算机科学概论（第11版）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-4"><span class="nav-number">5.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-4"><span class="nav-number">5.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序设计实践"><span class="nav-number">6.</span> <span class="nav-text">程序设计实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-5"><span class="nav-number">6.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-5"><span class="nav-number">6.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建之法"><span class="nav-number">7.</span> <span class="nav-text">构建之法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-6"><span class="nav-number">7.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-6"><span class="nav-number">7.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入理解Java虚拟机（第2版）"><span class="nav-number">8.</span> <span class="nav-text">深入理解Java虚拟机（第2版）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-7"><span class="nav-number">8.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-7"><span class="nav-number">8.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入浅出Node-js"><span class="nav-number">9.</span> <span class="nav-text">深入浅出Node.js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-8"><span class="nav-number">9.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-8"><span class="nav-number">9.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Head-First-Java（第二版·中文版）"><span class="nav-number">10.</span> <span class="nav-text">Head First Java（第二版·中文版）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-9"><span class="nav-number">10.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-9"><span class="nav-number">10.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#游戏引擎架构"><span class="nav-number">11.</span> <span class="nav-text">游戏引擎架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-10"><span class="nav-number">11.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-10"><span class="nav-number">11.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写可读代码的艺术"><span class="nav-number">12.</span> <span class="nav-text">编写可读代码的艺术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-11"><span class="nav-number">12.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-11"><span class="nav-number">12.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-DOM编程艺术-（第2版）"><span class="nav-number">13.</span> <span class="nav-text">JavaScript DOM编程艺术 （第2版）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-12"><span class="nav-number">13.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-12"><span class="nav-number">13.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Linux-Programming-Interface"><span class="nav-number">14.</span> <span class="nav-text">The Linux Programming Interface</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-13"><span class="nav-number">14.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-13"><span class="nav-number">14.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA-2核心技术-卷Ⅰ"><span class="nav-number">15.</span> <span class="nav-text">JAVA 2核心技术 卷Ⅰ</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-14"><span class="nav-number">15.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-14"><span class="nav-number">15.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编程人生"><span class="nav-number">16.</span> <span class="nav-text">编程人生</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-15"><span class="nav-number">16.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-15"><span class="nav-number">16.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从Python开始学编程"><span class="nav-number">17.</span> <span class="nav-text">从Python开始学编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-16"><span class="nav-number">17.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-16"><span class="nav-number">17.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件随想录"><span class="nav-number">18.</span> <span class="nav-text">软件随想录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-17"><span class="nav-number">18.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-17"><span class="nav-number">18.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOOM启世录"><span class="nav-number">19.</span> <span class="nav-text">DOOM启世录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-18"><span class="nav-number">19.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-18"><span class="nav-number">19.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与孩子一起学编程"><span class="nav-number">20.</span> <span class="nav-text">与孩子一起学编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-19"><span class="nav-number">20.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-19"><span class="nav-number">20.2.</span> <span class="nav-text">简介</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ryo</p>
+  <div class="site-description" itemprop="description">好看优秀的书籍整理</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">250</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/houbb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;houbb" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/houbinbin.echo@gmail.com" title="E-Mail → houbinbin.echo@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ryo</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

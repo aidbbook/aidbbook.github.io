@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"aidbmovie.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="软件体的生命周期 信息作者:  [美] 特德·姜  出版社: 译林出版社  副标题: 特德·姜科幻小说集  原作名: The Lifecycle of Software Objects  译者: 张博然 &#x2F; 李克勤 &#x2F; 王荣生 &#x2F; 耿辉  出版年: 2015-5  页数: 242">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科幻-20">
+<meta property="og:url" content="https://aidbmovie.github.io/2020/04/28/%E7%A7%91%E5%B9%BB-20/index.html">
+<meta property="og:site_name" content="豆瓣电影">
+<meta property="og:description" content="软件体的生命周期 信息作者:  [美] 特德·姜  出版社: 译林出版社  副标题: 特德·姜科幻小说集  原作名: The Lifecycle of Software Objects  译者: 张博然 &#x2F; 李克勤 &#x2F; 王荣生 &#x2F; 耿辉  出版年: 2015-5  页数: 242">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s28033065.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s29458364.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s26858994.jpg">
+<meta property="og:image" content="https://img1.doubanio.com/view/subject/l/public/s26858997.jpg">
+<meta property="og:image" content="https://img1.doubanio.com/view/subject/l/public/s1947928.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s23119071.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s2798862.jpg">
+<meta property="og:image" content="https://img1.doubanio.com/view/subject/l/public/s8935858.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s26252360.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s11373413.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s28291162.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s10213984.jpg">
+<meta property="og:image" content="https://img1.doubanio.com/view/subject/l/public/s24516028.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s26684895.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s28073185.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s27234850.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s1817666.jpg">
+<meta property="og:image" content="https://img1.doubanio.com/view/subject/l/public/s3324089.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s25995960.jpg">
+<meta property="og:image" content="https://img3.doubanio.com/view/subject/l/public/s1395794.jpg">
+<meta property="article:published_time" content="2020-04-28T13:39:22.772Z">
+<meta property="article:modified_time" content="2018-08-28T09:25:46.000Z">
+<meta property="article:author" content="ryo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img3.doubanio.com/view/subject/l/public/s28033065.jpg">
+
+<link rel="canonical" href="https://aidbmovie.github.io/2020/04/28/%E7%A7%91%E5%B9%BB-20/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>科幻-20 | 豆瓣电影</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">豆瓣电影</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">爱电影，爱生活</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://aidbmovie.github.io/2020/04/28/%E7%A7%91%E5%B9%BB-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ryo">
+      <meta itemprop="description" content="好看优秀的书籍整理">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="豆瓣电影">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          科幻-20
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-28 21:39:22" itemprop="dateCreated datePublished" datetime="2020-04-28T21:39:22+08:00">2020-04-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-08-28 17:25:46" itemprop="dateModified" datetime="2018-08-28T17:25:46+08:00">2018-08-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="软件体的生命周期"><a href="#软件体的生命周期" class="headerlink" title="软件体的生命周期"></a>软件体的生命周期</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s28033065.jpg" alt="软件体的生命周期"></p>
+<h4 id="信息"><a href="#信息" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] 特德·姜 </p>
+<p>出版社: 译林出版社 </p>
+<p>副标题: 特德·姜科幻小说集 </p>
+<p>原作名: The Lifecycle of Software Objects </p>
+<p>译者: 张博然 / 李克勤 / 王荣生 / 耿辉 </p>
+<p>出版年: 2015-5 </p>
+<p>页数: 242 </p>
+<p>定价: 35.00元 </p>
+<p>装帧: 精装 </p>
+<p>丛书: 特德·姜科幻作品 </p>
+<p>ISBN: 9787544752466</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>你永远不可能挽救每一只数码体</p>
+<p>人工智能时代的小人物大命运</p>
+<p>《软件体的生命周期》结集特德·姜最新的六篇作品：《软件体的生命周期》、《赏心悦目》、《商人和炼金术士之门》、《呼吸——宇宙的毁灭》、《前路迢迢》及《达西的新型自动机器保姆》——</p>
+<p>安娜在蓝色伽马培育数码体，供喜爱之人购买当宠物。随着数码体市场的发展、壮大、冷淡和萧条，数码体们的命运也随之发生变迁。</p>
+<p>戴上“审美干扰镜”，人们就无法分辨一个人相貌的美丑。这一新技术的诞生是否可以彻底根除相貌歧视，让我们听听那些当事人是怎么说的。</p>
+<p>穿越时空之门回到过去，能够对既定的事实带来改变吗？</p>
+<p>每天早上醒来之后，先把用完的肺换掉。来自地下的空气流源源不断，只可惜，我们耐以生存的似乎并不是空气。</p>
+<p>当你的每一个决定都被他人精确预料，你是欣然接受，还是无助挣扎？</p>
+<p>把孩子给保姆照料让人不放心，可如果这个保姆是个严格执行命令…</p>
+<p>(展开全部)</p>
+<p>你永远不可能挽救每一只数码体</p>
+<p>人工智能时代的小人物大命运</p>
+<p>《软件体的生命周期》结集特德·姜最新的六篇作品：《软件体的生命周期》、《赏心悦目》、《商人和炼金术士之门》、《呼吸——宇宙的毁灭》、《前路迢迢》及《达西的新型自动机器保姆》——</p>
+<p>安娜在蓝色伽马培育数码体，供喜爱之人购买当宠物。随着数码体市场的发展、壮大、冷淡和萧条，数码体们的命运也随之发生变迁。</p>
+<p>戴上“审美干扰镜”，人们就无法分辨一个人相貌的美丑。这一新技术的诞生是否可以彻底根除相貌歧视，让我们听听那些当事人是怎么说的。</p>
+<p>穿越时空之门回到过去，能够对既定的事实带来改变吗？</p>
+<p>每天早上醒来之后，先把用完的肺换掉。来自地下的空气流源源不断，只可惜，我们耐以生存的似乎并不是空气。</p>
+<p>当你的每一个决定都被他人精确预料，你是欣然接受，还是无助挣扎？</p>
+<p>把孩子给保姆照料让人不放心，可如果这个保姆是个严格执行命令、百分百听指挥的机器人呢？</p>
+<h3 id="摩天楼"><a href="#摩天楼" class="headerlink" title="摩天楼"></a>摩天楼</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s29458364.jpg" alt="摩天楼"></p>
+<h4 id="信息-1"><a href="#信息-1" class="headerlink" title="信息"></a>信息</h4><p>作者: [英] J.G.巴拉德 </p>
+<p>出版社: 上海人民出版社 </p>
+<p>出品方: 世纪文景 </p>
+<p>原作名: High-Rise </p>
+<p>译者: 陈醉 / 顾君 / 王卉 </p>
+<p>出版年: 2017-6 </p>
+<p>页数: 272 </p>
+<p>定价: 45.00元 </p>
+<p>装帧: 精装 </p>
+<p>ISBN: 9787208139015</p>
+<p>豆瓣评分: 7.9</p>
+<h4 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h4><p>实际上，这公寓大楼就是一座垂直的小城。莱恩望向四百码开外的那幢摩天楼。就在刚刚，发生了一场临时停电，7楼的灯全暗了。一片漆黑之中，已经有手电筒的光束在四处移动着，第一次，住户们迷惑地想要探清楚自己身在何处。莱恩心满意足地看着他们，准备欢迎他们去到他们的新世界。</p>
+<h3 id="仿生人会梦见电子羊吗？"><a href="#仿生人会梦见电子羊吗？" class="headerlink" title="仿生人会梦见电子羊吗？"></a>仿生人会梦见电子羊吗？</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s26858994.jpg" alt="仿生人会梦见电子羊吗？"></p>
+<h4 id="信息-2"><a href="#信息-2" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] 菲利普·迪克 </p>
+<p>出版社: 译林出版社 </p>
+<p>原作名: Do Androids Dream of Electric Sheep? </p>
+<p>译者: 许东华 </p>
+<p>出版年: 2013-9 </p>
+<p>页数: 200 </p>
+<p>定价: 28.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 菲利普·迪克作品：译林版 </p>
+<p>ISBN: 9787544738767</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h4><p>核战后，放射尘让地球上的动物濒临灭绝，地球已不再适合人类居住。为了鼓励残存的人口移民，政府承诺，只要 移民到外 星球，就可以为每个人自动配备一个仿生人帮助其生活。仿生人不满足于被人类奴役的现状，想方设法逃回地球。</p>
+<p>主人公里克•德卡德是一名专门追捕逃亡仿生人的赏金猎人。在一次 追捕行动中，里克遭遇了新型仿生人前所未有的挑战。九死之后，能否一生？在与仿生人的接触和较量中，里克发现自己对仿生人的看法和态度有了很大的改变。这种改变究竟是福还是祸？</p>
+<h3 id="少数派报告"><a href="#少数派报告" class="headerlink" title="少数派报告"></a>少数派报告</h3><p><img src="https://img1.doubanio.com/view/subject/l/public/s26858997.jpg" alt="少数派报告"></p>
+<h4 id="信息-3"><a href="#信息-3" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] 菲利普·迪克 </p>
+<p>出版社: 译林出版社 </p>
+<p>副标题: 菲利普·迪克短篇小说精选 </p>
+<p>原作名: The Minority Report </p>
+<p>译者: 周昭蓉 </p>
+<p>出版年: 2013-9 </p>
+<p>页数: 290 </p>
+<p>定价: 32.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 菲利普·迪克作品：译林版 </p>
+<p>ISBN: 9787544738774</p>
+<p>豆瓣评分: 9.0</p>
+<h4 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h4><p>本书结集科幻鬼才菲利普·迪克最具代表性的九个短篇：《第二代》《冒名顶替》《规划小组》《少数派报告》《战争游戏》《 啊，当个布洛贝尔人！》《死者的话》《全面回忆》和《电子蚂蚁》。</p>
+<p>菲利普·迪克以其独特的文风和光怪陆离的想象在美国科幻黄金时代独树一帜。他的短篇小说情节跌宕，很多故事的架构都勘称一绝。</p>
+<p>《少数派报告》《全面回忆》《命运规划局》《异形终结》《冒名顶替》等好莱坞巨制的小说原著。</p>
+<h3 id="美国众神"><a href="#美国众神" class="headerlink" title="美国众神"></a>美国众神</h3><p><img src="https://img1.doubanio.com/view/subject/l/public/s1947928.jpg" alt="美国众神"></p>
+<h4 id="信息-4"><a href="#信息-4" class="headerlink" title="信息"></a>信息</h4><p>作者:  [英] 尼尔·盖曼 </p>
+<p>出版社: 四川科学技术出版社 </p>
+<p>译者: 戚林 </p>
+<p>出版年: 2006-12 </p>
+<p>页数: 456 </p>
+<p>定价: 36.00元 </p>
+<p>装帧: 平装16开 </p>
+<p>丛书: 世界奇幻大师丛书 </p>
+<p>ISBN: 9787536459502</p>
+<p>豆瓣评分: 8.0</p>
+<h4 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h4><p>《美国众神》描述主人公——影子从监狱释放后，穿越美国大陆的旅行过程中的一系列奇遇。讲他与生活在美国土地上的各种神祇相遇，由此引发了出许多精彩动人、奇诡绚丽的故事。</p>
+<p>影子为一个叫做星期三的老头跑腿当差使，而星期三其实是一个名叫奥丁的老神仙。奥丁是在9世纪的时候，搭乘怀着早期维京探险者的挪威梦想来到北美的。他不过是美国的无数神祇之一。影子随后还遭遇了主神奥丁的兄弟、狡诈之神洛奇，来自埃及的圣猫女神巴斯特，斯拉夫的黑暗与死亡之神岑诺博格，来自西非的骗术之神南西，印度教的毁灭之神伽梨，埃及神话中的冥界之神阿努比斯，盎格鲁－撒克逊神话中的黎明之神伊斯特，等等。</p>
+<h3 id="深渊上的火"><a href="#深渊上的火" class="headerlink" title="深渊上的火"></a>深渊上的火</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s23119071.jpg" alt="深渊上的火"></p>
+<h4 id="信息-5"><a href="#信息-5" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] 弗诺·文奇 </p>
+<p>出版社: 四川科学技术出版社 </p>
+<p>原作名: A Fire Upon The Deep </p>
+<p>译者: 李克勤 </p>
+<p>出版年: 2004-1 </p>
+<p>页数: 661 </p>
+<p>定价: 58.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 世界科幻大师丛书 </p>
+<p>ISBN: 9787536454583</p>
+<p>豆瓣评分: 8.9</p>
+<h4 id="简介-5"><a href="#简介-5" class="headerlink" title="简介"></a>简介</h4><p>本书荣获世界科幻大奖“雨果奖”。</p>
+<p>恢弘的大宇宙，无数神奇的种族。当灾难爆发时。这一切神奇都将坠入万劫不复的黑暗之中。千百万个世界的生死存亡。这副千钧重担落在一个不起眼的种族——人类身上。一个男人，一个女人，两个孩子。</p>
+<p>以此为线索，弗诺·文奇想象出一个又一个奇异的外星种族，以及种族问的激烈冲突。这位以想象力闻名的科幻作家在本书中充分展示了自己驾驭复杂情节的能力，不仅对大宇宙作鸟瞰式纵览，还细致入微地描绘了一个处于中世纪文明的外星种族爪族方方面面的生活。</p>
+<p>冲突、逃亡、阴谋、复仇。构成波澜壮阔的银河英雄史诗。美国著名科幻编辑多佐伊斯将这类小说称为“大场景科幻壮剧”。正是由于弗诺·文奇的创作，这一类型的作品才能在林林总总的科幻作品中占据一席之地。</p>
+<h3 id="2001太空漫游"><a href="#2001太空漫游" class="headerlink" title="2001太空漫游"></a>2001太空漫游</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s2798862.jpg" alt="2001太空漫游"></p>
+<h4 id="信息-6"><a href="#信息-6" class="headerlink" title="信息"></a>信息</h4><p>作者:  [英] 阿瑟·克拉克 </p>
+<p>出版社: 上海人民出版社 </p>
+<p>原作名: </p>
+<p>2001: A Space Odyssey </p>
+<p>译者: 郝明义 </p>
+<p>出版年: 2007-11 </p>
+<p>页数: 279 </p>
+<p>定价: 28.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 太空漫游 </p>
+<p>ISBN: 9787208074002</p>
+<p>豆瓣评分: 9.1</p>
+<h4 id="简介-6"><a href="#简介-6" class="headerlink" title="简介"></a>简介</h4><p>神秘的黑色石板在史前时代启蒙了地球人类的文明。三百万年后，人类在月球上发现了同样的石板，而石板在出土瞬间立即朝土星方向发射出电磁信号。美国派太空船“发现号”远征土星，追查真相。太空船的超级电脑“哈尔”发疯，害死三名冬眠中的太空人，并犯弗兰克·普尔变成太空漂流物，只有戴维·鲍曼逃过一劫。幸存的鲍曼独自抵达土星，又发现另一块更大的黑石板……</p>
+<p>在阿瑟·克拉克众多作品中，以“太空漫游”四部曲最为脍炙人口，他用丰富的第一手太空科学资料，创造出比现实太空科技更为创新的场景；而他扎实的科学背景，更使作品中提到的科技情节具有强大的说服力。 本书是“太空漫游四部曲”之一的《2001太空漫游》。</p>
+<h3 id="宇宙尽头的餐馆"><a href="#宇宙尽头的餐馆" class="headerlink" title="宇宙尽头的餐馆"></a>宇宙尽头的餐馆</h3><p><img src="https://img1.doubanio.com/view/subject/l/public/s8935858.jpg" alt="宇宙尽头的餐馆"></p>
+<h4 id="信息-7"><a href="#信息-7" class="headerlink" title="信息"></a>信息</h4><p>作者:  [英] 道格拉斯·亚当斯 </p>
+<p>出版社: 上海译文出版社 </p>
+<p>原作名: The Restaurant at the End of the Universe </p>
+<p>译者: 姚向辉 </p>
+<p>出版年: 2012-5 </p>
+<p>页数: 278 </p>
+<p>定价: 26.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 银河系搭车客指南五部曲 </p>
+<p>ISBN: 9787532757350</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-7"><a href="#简介-7" class="headerlink" title="简介"></a>简介</h4><p>宇宙尽头的餐馆是餐饮史上最了不起的风险投资，整个餐馆被一个巨大的时间泡包裹，并沿时间轴向前投射至宇宙终结的那个时刻。</p>
+<p>餐馆里，客人各自挑选座位坐下，吃着美食，观看整个宇宙在周围爆炸。</p>
+<p>你可以随意就座，无需预约，因为你可以返回原先时间后再补订；你愿意来多少次就可以来多少次，但要确定千万别遇见自己；同时，你需要做的不过是在自己所在的时代开个储蓄账户，存下一分钱，等抵达时间尽头的时候，所得的复利足以保证你付得起账单。</p>
+<p>为此，混球星系的广告公司的口号是：如果今天早晨你已经做了六件不可能的事情，那就干脆来宇宙尽头的“豪河”餐馆吃顿早饭吧！</p>
+<p>“黄金之心”号的乘员们正有此意。比起逃脱沃贡人的追击，避免被带到银河系最邪恶的星球，以及教飞船学会如何冲一杯好茶，这实在是件不足挂齿的小事。</p>
+<p>说真的，有谁预约过吗？</p>
+<h3 id="神的九十亿个名字"><a href="#神的九十亿个名字" class="headerlink" title="神的九十亿个名字"></a>神的九十亿个名字</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s26252360.jpg" alt="神的九十亿个名字"></p>
+<h4 id="信息-8"><a href="#信息-8" class="headerlink" title="信息"></a>信息</h4><p>作者:  [英] 阿瑟·克拉克 </p>
+<p>出版社: 江苏文艺出版社 </p>
+<p>出品方: 读客 </p>
+<p>原作名: Of time and stars </p>
+<p>译者: 邹运旗 </p>
+<p>出版年: 2013-3 </p>
+<p>页数: 196 </p>
+<p>定价: 28.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 读客全球顶级畅销小说文库：阿瑟·克拉克作品 </p>
+<p>ISBN: 9787539958774</p>
+<p>豆瓣评分: 8.4</p>
+<h4 id="简介-8"><a href="#简介-8" class="headerlink" title="简介"></a>简介</h4><p>上帝、耶和华、安拉……这些都是人造的符号，神真正的名字是不可呼唤的……</p>
+<p>一位西藏喇嘛向瓦格纳博士提出了一个奇怪的请求，他需要雇佣两名工程师，将一台自动序列计算机运送到圣地香格里拉。工程师们不远万里来到高山之巅的寺庙中，确保计算机不出故障地日夜运作。3个月之后，计算机将打印出九十亿种不同字母排列，里面隐藏着至高之神真正的名字。一旦名录完成，真正的神明便会降临世间……</p>
+<p>英国科幻小说大师阿瑟•克拉克是20世纪最伟大的先知，是用科幻预言未来最成功的小说家。《神的九十亿个名字：阿瑟•克拉克经典科幻小说》收录了克拉克一生创作的近100部科幻作品中最精彩的18篇。他在这些才华横溢的杰作中，对宇宙争霸、地心危机、太空缆车、人工智能、星际通讯、冰河纪降临、外星人入侵、核能浩劫等科幻母题逐一进行了深刻的阐释。克拉克用钟表般精确的科幻道具和庞大壮阔的时空尺度，赋予读者无尽…</p>
+<p>(展开全部)</p>
+<p>上帝、耶和华、安拉……这些都是人造的符号，神真正的名字是不可呼唤的……</p>
+<p>一位西藏喇嘛向瓦格纳博士提出了一个奇怪的请求，他需要雇佣两名工程师，将一台自动序列计算机运送到圣地香格里拉。工程师们不远万里来到高山之巅的寺庙中，确保计算机不出故障地日夜运作。3个月之后，计算机将打印出九十亿种不同字母排列，里面隐藏着至高之神真正的名字。一旦名录完成，真正的神明便会降临世间……</p>
+<p>英国科幻小说大师阿瑟•克拉克是20世纪最伟大的先知，是用科幻预言未来最成功的小说家。《神的九十亿个名字：阿瑟•克拉克经典科幻小说》收录了克拉克一生创作的近100部科幻作品中最精彩的18篇。他在这些才华横溢的杰作中，对宇宙争霸、地心危机、太空缆车、人工智能、星际通讯、冰河纪降临、外星人入侵、核能浩劫等科幻母题逐一进行了深刻的阐释。克拉克用钟表般精确的科幻道具和庞大壮阔的时空尺度，赋予读者无尽的使命感与苍凉的宿命感，并对后世的科幻小说、电影有着极其深远的影响。</p>
+<h3 id="大师的盛宴"><a href="#大师的盛宴" class="headerlink" title="大师的盛宴"></a>大师的盛宴</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s11373413.jpg" alt="大师的盛宴"></p>
+<h4 id="信息-9"><a href="#信息-9" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] 奥森·斯科特·卡德 </p>
+<p>出版社: 新星出版社 </p>
+<p>副标题: 二十世纪最佳科幻小说选 </p>
+<p>原作名: </p>
+<p>Masterpieces: The Best Science Fiction of the Century </p>
+<p>译者: 姚向辉 等 </p>
+<p>出版年: 2012-9-30 </p>
+<p>页数: 580 </p>
+<p>定价: 45.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 幻象文库 </p>
+<p>ISBN: 9787513307109</p>
+<p>豆瓣评分: 8.9</p>
+<h4 id="简介-9"><a href="#简介-9" class="headerlink" title="简介"></a>简介</h4><p>本书共收录27篇上世纪最为优秀的28位科幻大师的短篇小说。从科幻的黄金时代，到锐意革新的新浪潮时代，再到天才辈出的多媒体时代，每个阶段的顶尖人物的作品均囊括其中，阵容可谓豪华无匹！科幻小说史上那些最为璀璨的巨星，诸如阿西莫夫、阿瑟•克拉克、海因莱因、雷•布拉德伯里、乔治•马丁、威廉•吉布森、勒古恩、希尔弗伯格、弗雷德里克•波尔等均赫然在列。</p>
+<h3 id="银河英雄传说"><a href="#银河英雄传说" class="headerlink" title="银河英雄传说"></a>银河英雄传说</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s28291162.jpg" alt="银河英雄传说"></p>
+<h4 id="信息-10"><a href="#信息-10" class="headerlink" title="信息"></a>信息</h4><p>作者:  [日] 田中芳树 </p>
+<p>出版社: 西藏人民出版社 </p>
+<p>译者:  蔡美娟 </p>
+<p>出版年: 2004-7-1 </p>
+<p>页数: 412 </p>
+<p>定价: 19.80元 </p>
+<p>装帧: 平装 </p>
+<p>ISBN: 9787223011297</p>
+<p>豆瓣评分: 9.3</p>
+<h4 id="简介-10"><a href="#简介-10" class="headerlink" title="简介"></a>简介</h4><p>日本著名小说家田中芳树的太空歌剧式科幻小说。整个小说时间设定为人类生存圈扩展到全银河系的未来时空，由于人们对政治失去信心，疏于履行自己的权利和义务，以至于拥戴野心家把全人类社会变成独裁专制的帝国。后来不满帝制的人展开逃亡，成立了民主政权并与之对抗。银河系从此展开了两大势力长达150多年的争战，那就是专制统治的银河帝国和高举共和主义旗帜的自由行星同盟，夹在交战双方中间的是强大的经济体——小都市国家费沙自治领，还有背后的黑暗势力——地球教也在蠢蠢欲动。</p>
+<h3 id="云图"><a href="#云图" class="headerlink" title="云图"></a>云图</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s10213984.jpg" alt="云图"></p>
+<h4 id="信息-11"><a href="#信息-11" class="headerlink" title="信息"></a>信息</h4><p>作者:  [英] 大卫·米切尔 </p>
+<p>出版社: 上海文艺出版社 </p>
+<p>原作名: Cloud Atlas </p>
+<p>译者: 杨春雷 </p>
+<p>出版年: 2010-1-1 </p>
+<p>页数: 486 </p>
+<p>定价: 33.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 大卫·米切尔作品 </p>
+<p>ISBN: 9787532136926</p>
+<p>豆瓣评分: 8.3</p>
+<h4 id="简介-11"><a href="#简介-11" class="headerlink" title="简介"></a>简介</h4><p>《Cloud Atlas》（《云图》，2004）是大卫.米切尔的第三部小说。这本书由六段故事构成，从1840年一位美国人从悉尼旅行到旧金山的日记、二十世纪三十年代初居住在比利时的年轻作曲家、1975年卷入加利福尼亚灾难的年轻记者、当今伦敦出版回忆录的黑道、1984年韩国发生的故事与一个老人叙述当时在夏威夷的青春自语为终结。 《Cloud Atlas》入围2004年布克奖（Man Booker Prize）。</p>
+<h3 id="“太空漫游”四部曲"><a href="#“太空漫游”四部曲" class="headerlink" title="“太空漫游”四部曲"></a>“太空漫游”四部曲</h3><p><img src="https://img1.doubanio.com/view/subject/l/public/s24516028.jpg" alt="“太空漫游”四部曲"></p>
+<h4 id="信息-12"><a href="#信息-12" class="headerlink" title="信息"></a>信息</h4><p>作者:  [英] 阿瑟·克拉克 </p>
+<p>出版社: 上海人民出版社 </p>
+<p>出品方: 世纪文景 </p>
+<p>译者: 郝明义 / 张启阳 / 钟慧元 / 叶李华 </p>
+<p>出版年: 2013-1 </p>
+<p>页数: 1164 </p>
+<p>定价: 198.00元 </p>
+<p>装帧: 精装 </p>
+<p>丛书: 太空漫游 </p>
+<p>ISBN: 9787208110908</p>
+<p>豆瓣评分: 9.1</p>
+<h4 id="简介-12"><a href="#简介-12" class="headerlink" title="简介"></a>简介</h4><p>科幻殿堂的永恒经典， 太空时代的不朽史诗</p>
+<p>全新修订精装典藏版</p>
+<p>阿瑟•克拉克，这个时代最伟大的科幻大师和太空预言家</p>
+<p>“太空漫游”系列，世界科幻文学巅峰之作，全球畅销45年</p>
+<p>“太空漫游”四部曲由《2001：太空漫游》《2010：太空漫游》《2061：太空漫游》《3001：太空漫游》四部作品组成，是世界科幻三巨头之一——阿瑟•克拉克最重要的代表作。其中的第一部《2001：太空漫游》被誉为世界科幻文学不可超越的巅峰之作，不但是全球科幻迷心中的圣经，更成为流行文化的经典。</p>
+<p>“太空漫游”四部曲（典藏版），是国内首次以精装套装的形式出版阿瑟•克拉克的这个经典科幻系列，不仅装帧设计精美，充分体现出这个系列的经典感，而且四本的内文全部重新校译，修订了许多之前2007年平装版本中的谬误。</p>
+<p>四部曲的第一部《2001》初版于1968年，第二部《2010》初版于1982年，…</p>
+<p>(展开全部)</p>
+<p>科幻殿堂的永恒经典， 太空时代的不朽史诗</p>
+<p>全新修订精装典藏版</p>
+<p>阿瑟•克拉克，这个时代最伟大的科幻大师和太空预言家</p>
+<p>“太空漫游”系列，世界科幻文学巅峰之作，全球畅销45年</p>
+<p>“太空漫游”四部曲由《2001：太空漫游》《2010：太空漫游》《2061：太空漫游》《3001：太空漫游》四部作品组成，是世界科幻三巨头之一——阿瑟•克拉克最重要的代表作。其中的第一部《2001：太空漫游》被誉为世界科幻文学不可超越的巅峰之作，不但是全球科幻迷心中的圣经，更成为流行文化的经典。</p>
+<p>“太空漫游”四部曲（典藏版），是国内首次以精装套装的形式出版阿瑟•克拉克的这个经典科幻系列，不仅装帧设计精美，充分体现出这个系列的经典感，而且四本的内文全部重新校译，修订了许多之前2007年平装版本中的谬误。</p>
+<p>四部曲的第一部《2001》初版于1968年，第二部《2010》初版于1982年，第三部《2061》初版于1987年，最后一部《3001》则初版于1997年。虽然每一部的故事情节都与上一部有一定关联，但实际上并不是之前的续篇，而是随着时代发展，以最新的科学技术为基础，生发出全新的预见，讲述出更加复杂而新鲜的故事。克拉克本人对这四部曲的期望，是“让每本书自成体系，并且根据目前的知识，做到尽可能的准确”。</p>
+<p>阿瑟•克拉克的“太空漫游”在今天读来仍然荡气回肠，并不仅是他作出了多少令人惊叹的预言；用克拉克的终生好友，著名导演斯坦利•库布里克的话说，是“克拉克给了我们一种新视野，让我们看到，人类正从地球摇篮向自己在星海间的未来伸出双手”。</p>
+<p>正是因为阿瑟•克拉克的“太空漫游”，我们仰望星空的意义从此不同。</p>
+<h3 id="艾比斯之梦"><a href="#艾比斯之梦" class="headerlink" title="艾比斯之梦"></a>艾比斯之梦</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s26684895.jpg" alt="艾比斯之梦"></p>
+<h4 id="信息-13"><a href="#信息-13" class="headerlink" title="信息"></a>信息</h4><p>作者:  [日] 山本弘 </p>
+<p>出版社: 新星出版社 </p>
+<p>原作名: アイの物語 </p>
+<p>译者: 张智渊 </p>
+<p>出版年: 2013-6 </p>
+<p>页数: 424 </p>
+<p>定价: 36.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 幻象文库 </p>
+<p>ISBN: 9787513312295</p>
+<p>豆瓣评分: 8.6</p>
+<h4 id="简介-13"><a href="#简介-13" class="headerlink" title="简介"></a>简介</h4><p>日本赛伯朋克最佳作</p>
+<p>补完“机器人三定律”超越阿莫西夫！</p>
+<p>日本最佳科幻小说畅销榜亚军</p>
+<p>《书的杂志》评选十大畅销书季军</p>
+<p>齐获日、美两国亚马逊读者的全五星评价。</p>
+<p>被誉为“科幻版的《一千零一夜》”</p>
+<p>冰冷的电路板上，二进制算法进化出智慧的火花</p>
+<p>炙热的电极管里，神经元芯片传递着爱情的信号</p>
+<p>当人工智能机器人拥有自我意识之日，人类是否迎来了覆灭之时</p>
+<p>七则如《一千零一夜》般华美瑰丽的故事，揭示人类从未了解的人工智能进化之路</p>
+<p>第一次阅读山本弘先生的科幻作品，我就深深地被他笔下的世界迷住了——乙一</p>
+<p>故事的起初，人类在机器人统治的世界里苟延残喘，主人公“我”以讲述故事为业，浪迹四方，偶尔也会参与人类团体袭击机器人运输队的行动。某一天“我”与一个人形机器人不期而至，“我”与之交手，不敌负伤遭擒，被送到机器人城市的医院中接受治疗，而那个击伤“我”的机器人则开始每天给我念故事，同…</p>
+<p>(展开全部)</p>
+<p>日本赛伯朋克最佳作</p>
+<p>补完“机器人三定律”超越阿莫西夫！</p>
+<p>日本最佳科幻小说畅销榜亚军</p>
+<p>《书的杂志》评选十大畅销书季军</p>
+<p>齐获日、美两国亚马逊读者的全五星评价。</p>
+<p>被誉为“科幻版的《一千零一夜》”</p>
+<p>冰冷的电路板上，二进制算法进化出智慧的火花</p>
+<p>炙热的电极管里，神经元芯片传递着爱情的信号</p>
+<p>当人工智能机器人拥有自我意识之日，人类是否迎来了覆灭之时</p>
+<p>七则如《一千零一夜》般华美瑰丽的故事，揭示人类从未了解的人工智能进化之路</p>
+<p>第一次阅读山本弘先生的科幻作品，我就深深地被他笔下的世界迷住了——乙一</p>
+<p>故事的起初，人类在机器人统治的世界里苟延残喘，主人公“我”以讲述故事为业，浪迹四方，偶尔也会参与人类团体袭击机器人运输队的行动。某一天“我”与一个人形机器人不期而至，“我”与之交手，不敌负伤遭擒，被送到机器人城市的医院中接受治疗，而那个击伤“我”的机器人则开始每天给我念故事，同时与“我”约定，除非“我”自己要求，否则她（因为是女性外形的机器人）只会给我念那些由从前的人类自己写的、绝对不是这个世界真实历史的故事。</p>
+<h3 id="看海的人"><a href="#看海的人" class="headerlink" title="看海的人"></a>看海的人</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s28073185.jpg" alt="看海的人"></p>
+<h4 id="信息-14"><a href="#信息-14" class="headerlink" title="信息"></a>信息</h4><p>作者:  [日] 小林泰三 </p>
+<p>出版社: 雅众文化/新星出版社 </p>
+<p>原作名: 海を見る人 </p>
+<p>译者: 丁丁虫 </p>
+<p>出版年: 2015-2 </p>
+<p>页数: 243 </p>
+<p>定价: 32.80元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 幻象文库 </p>
+<p>ISBN: 9787513316743</p>
+<p>豆瓣评分: 8.3</p>
+<h4 id="简介-14"><a href="#简介-14" class="headerlink" title="简介"></a>简介</h4><p>日本科幻新御三家，星云奖得主</p>
+<p>【小林泰三】</p>
+<p>最经典的浪漫派科幻短篇集</p>
+<p>最浪漫、温柔的异世界七景</p>
+<p>穿越黑洞，漂流宇宙，回溯时空，与她相望于永恒的两端……</p>
+<p>★日版《星际穿越》</p>
+<p>★名列All time Best SF榜</p>
+<p>★长门有希一百本</p>
+<p>本书完整收录《看海的人》《门》等七篇浪漫派科幻杰作，在或温馨或哀婉的故事中，完美呈现了“白小林”设定严谨缜密的幻想世界，是了解现代日式科幻的绝佳文本，也是科幻迷不可错过的经典。</p>
+<p>分住在“海边”“山顶”两种不同时空的少年与少女，偶然相遇于一次祭典。迥异的时间流速，让他们年复一年苦苦等待彼此。直到有一天，少年踏上了前往“海边”寻找少女的旅程……</p>
+<p>在“门”边的小行星，我与年轻的舰长相遇相爱，我们一起步上探索“门”的旅途。然而一次意外，我回到了行星，舰长却“永远”地进入了那黑洞般的“门”……</p>
+<h3 id="全息玫瑰碎片"><a href="#全息玫瑰碎片" class="headerlink" title="全息玫瑰碎片"></a>全息玫瑰碎片</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s27234850.jpg" alt="全息玫瑰碎片"></p>
+<h4 id="信息-15"><a href="#信息-15" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] 威廉·吉布森 </p>
+<p>出版社: 新星出版社 </p>
+<p>副标题: 威廉·吉布森短篇杰作选 </p>
+<p>原作名: Burning Chrome </p>
+<p>译者: 李懿 / 梁涵等 </p>
+<p>出版年: 2014-3 </p>
+<p>页数: 211 </p>
+<p>定价: 29.00 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 幻象文库 </p>
+<p>ISBN: 9787513311588</p>
+<p>豆瓣评分: 8.5</p>
+<h4 id="简介-15"><a href="#简介-15" class="headerlink" title="简介"></a>简介</h4><p>本书收录了威廉·吉布森创作生涯中的最佳短篇作品，包括其科幻处女作《全息玫瑰碎片》，挑战旧式科幻的战斗檄文《根斯巴克连续体》；更有三篇赛伯朋克的先驱之作《约翰尼的记忆》《新玫瑰旅馆》《整垮铬萝米》，吉布森最富盛名的长篇作品《神经浪游者》即滥觞于此。 这十篇异彩纷呈的杰作记录了赛伯朋克宗师的成长历程，是科幻拥趸不可或缺的史料级文本，极具收藏价值。</p>
+<p>科幻迷必读的史料级文本</p>
+<p>采撷赛伯朋克宗师的十个灵魂碎片</p>
+<p>剖析互联网时代的技术奇想之旅</p>
+<p>威廉·吉布森总能刺中社会的敏感神经。他帮助科幻文类从刻板的昏睡中苏醒，来到现代思潮的明媚阳光下。——布鲁斯·斯特林</p>
+<p>赛伯朋克宗师威廉·吉布森唯一的短篇作品集，从其科幻创作的处女作到《神经浪游者》的萌芽之作均收录其中。除了当下最“酷”的赛伯朋克故事，还包括了太空探险、都市奇幻等吉布森鲜有涉猎的题材。</p>
+<p>布鲁斯·斯特林和威廉·吉布森…</p>
+<p>(展开全部)</p>
+<p>本书收录了威廉·吉布森创作生涯中的最佳短篇作品，包括其科幻处女作《全息玫瑰碎片》，挑战旧式科幻的战斗檄文《根斯巴克连续体》；更有三篇赛伯朋克的先驱之作《约翰尼的记忆》《新玫瑰旅馆》《整垮铬萝米》，吉布森最富盛名的长篇作品《神经浪游者》即滥觞于此。 这十篇异彩纷呈的杰作记录了赛伯朋克宗师的成长历程，是科幻拥趸不可或缺的史料级文本，极具收藏价值。</p>
+<p>科幻迷必读的史料级文本</p>
+<p>采撷赛伯朋克宗师的十个灵魂碎片</p>
+<p>剖析互联网时代的技术奇想之旅</p>
+<p>威廉·吉布森总能刺中社会的敏感神经。他帮助科幻文类从刻板的昏睡中苏醒，来到现代思潮的明媚阳光下。——布鲁斯·斯特林</p>
+<p>赛伯朋克宗师威廉·吉布森唯一的短篇作品集，从其科幻创作的处女作到《神经浪游者》的萌芽之作均收录其中。除了当下最“酷”的赛伯朋克故事，还包括了太空探险、都市奇幻等吉布森鲜有涉猎的题材。</p>
+<p>布鲁斯·斯特林和威廉·吉布森本人作序，解读每一个短篇背后的故事，剖析大师的创作成长之路和20世纪下半叶科幻文坛的变幻风云。堪称“史料级”文本，是科幻迷和科幻研究者的必读之作。</p>
+<h3 id="海底两万里"><a href="#海底两万里" class="headerlink" title="海底两万里"></a>海底两万里</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s1817666.jpg" alt="海底两万里"></p>
+<h4 id="信息-16"><a href="#信息-16" class="headerlink" title="信息"></a>信息</h4><p>作者:  [法] 儒尔·凡尔纳 / [法] 儒勒·凡尔纳 </p>
+<p>出版社: 译林出版社 </p>
+<p>译者: 沈国华 / 钱培鑫 / 曹德明 </p>
+<p>出版年: 2002-9 </p>
+<p>页数: 414 </p>
+<p>定价: 19.50元 </p>
+<p>装帧: 精装 </p>
+<p>丛书: 译林少儿文库 </p>
+<p>ISBN: 9787806574317</p>
+<p>豆瓣评分: 8.4</p>
+<h4 id="简介-16"><a href="#简介-16" class="headerlink" title="简介"></a>简介</h4><p>本书是法国举世闻名的科幻小说作家儒尔·凡尔纳的代表作之一。</p>
+<p>作者让读者登上“鹦鹉螺号”，以平均十二公里的时速，在将近十个月的海底旅行中，随着尼摩船长和他的“客人们”饱览海底变幻无穷的奇异景观和各类生物；航程中高潮迭起，有海底狩猎，参观海底森林，探访海底亚特兰蒂斯废墟，打捞西班牙沉船的财宝，目睹珊瑚王国的葬礼，与大蜘蛛、鲨鱼、章鱼搏斗， 击退土著人的围攻等等。</p>
+<p>十九世纪下半叶，“异国风情”曾受到不少作家，画家的青睐和读者的追捧，《海底两万里》的奇妙旅行为异域风情另辟蹊径，使人耳目一新；这就是为什么这部“海洋小说”不仅在当时一出版即成为畅销书，而且日后受到一代又一代读者欢迎的原因。</p>
+<h3 id="流浪地球"><a href="#流浪地球" class="headerlink" title="流浪地球"></a>流浪地球</h3><p><img src="https://img1.doubanio.com/view/subject/l/public/s3324089.jpg" alt="流浪地球"></p>
+<h4 id="信息-17"><a href="#信息-17" class="headerlink" title="信息"></a>信息</h4><p>作者: 刘慈欣 </p>
+<p>出版社: 湖北长江出版集团，长江文艺出版社 </p>
+<p>副标题: 刘慈欣获奖作品 </p>
+<p>出版年: 2008-11 </p>
+<p>页数: 293 </p>
+<p>定价: 28.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 刘慈欣科幻系列 </p>
+<p>ISBN: 9787535438379</p>
+<p>豆瓣评分: 8.8</p>
+<h4 id="简介-17"><a href="#简介-17" class="headerlink" title="简介"></a>简介</h4><p>此书为刘慈欣获中国科幻银河奖的中短篇科幻小说作品集，收录有《流浪地球》《乡村教师》《全频带阻塞干扰》等获奖佳作。</p>
+<h3 id="安德的游戏"><a href="#安德的游戏" class="headerlink" title="安德的游戏"></a>安德的游戏</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s25995960.jpg" alt="安德的游戏"></p>
+<h4 id="信息-18"><a href="#信息-18" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] 奥森·斯科特·卡德 </p>
+<p>出版社: 四川科学技术出版社 </p>
+<p>原作名: Ender’s Game </p>
+<p>译者: 李毅 </p>
+<p>出版年: 2003-09-01 </p>
+<p>页数: 327 </p>
+<p>定价: 21.00元 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 世界科幻大师丛书 </p>
+<p>ISBN: 9787536453265</p>
+<p>豆瓣评分: 8.7</p>
+<h4 id="简介-18"><a href="#简介-18" class="headerlink" title="简介"></a>简介</h4><p>可怕的外星怪物――虫族越来越严惩地威胁着地球，可是地球各国却把大量金钱和物资花在为小孩子在太空修建游戏基地上，并不断挑选年幼在孩子前往其中进行各种对抗游戏。游戏的难度不断被加大，不断有人被淘汰，教官有意孤立成绩突出的人，优秀的学员不择手段、拼命竞争……这一切的最终目的就是挑选出一个心理状态最稳定、神经最强悍的孩子。地球当局将赌注押在了这个最终的游戏天才身上，此人将获得地球远征舰队的指挥权，与虫族展开决战。 安德・维京成为了这个游戏天才，但是，大决战以他完全没有想到的方式开始了……</p>
+<h3 id="机器人短篇全集（上下）"><a href="#机器人短篇全集（上下）" class="headerlink" title="机器人短篇全集（上下）"></a>机器人短篇全集（上下）</h3><p><img src="https://img3.doubanio.com/view/subject/l/public/s1395794.jpg" alt="机器人短篇全集（上下）"></p>
+<h4 id="信息-19"><a href="#信息-19" class="headerlink" title="信息"></a>信息</h4><p>作者:  [美] 艾萨克·阿西莫夫 </p>
+<p>出版社: 天地出版社 </p>
+<p>原作名: The Complete Robot </p>
+<p>译者: 汉声杂志 </p>
+<p>出版年: 2005-06 </p>
+<p>页数: 730 </p>
+<p>定价: 45.0 </p>
+<p>装帧: 平装 </p>
+<p>丛书: 机器人系列 </p>
+<p>ISBN: 9787807260431</p>
+<p>豆瓣评分: 9.2</p>
+<h4 id="简介-19"><a href="#简介-19" class="headerlink" title="简介"></a>简介</h4><p>向来，昨天才是历史，过去才是历史。阿西莫夫却与众不同，他的机器人系列写的是“明天的历史”，是“遥远未来的历史”！这位美国的“太史公”，用史诗般的笔触，用宏大的篇章，向你娓娓动听地讲述了人与机器人跌宕曲折的故事，把“未来的历史”淋漓尽致地奉献给你。</p>
+<p>这是一部汇集世界科幻大师阿西莫夫创作的有关机器人短篇小说全集。所收录的短篇小说有《孩子最好的朋友》《莎莉》《总有一天》《观点》《思考》《真爱》《AL-76号走失记》《无心的胜利》《天堂异乡人》《光雕》《分离主义者》《小机》《当我们同在一起》《镜像》《三百年庆事件》《第一法则》《转圈圈》《理性》《抓兔子》《骗子》《保证满意》《列尼》《校工》《消失无踪》《冒险》《逃避》《证据》《可避免的冲突》《女性直觉》《汝竟顾念他》《机器人之梦》《正电子人》等三十二篇小说。</p>
+<p>在这些形形色色的短篇小说中，各种机器人的形象描写得…</p>
+<p>(展开全部)</p>
+<p>向来，昨天才是历史，过去才是历史。阿西莫夫却与众不同，他的机器人系列写的是“明天的历史”，是“遥远未来的历史”！这位美国的“太史公”，用史诗般的笔触，用宏大的篇章，向你娓娓动听地讲述了人与机器人跌宕曲折的故事，把“未来的历史”淋漓尽致地奉献给你。</p>
+<p>这是一部汇集世界科幻大师阿西莫夫创作的有关机器人短篇小说全集。所收录的短篇小说有《孩子最好的朋友》《莎莉》《总有一天》《观点》《思考》《真爱》《AL-76号走失记》《无心的胜利》《天堂异乡人》《光雕》《分离主义者》《小机》《当我们同在一起》《镜像》《三百年庆事件》《第一法则》《转圈圈》《理性》《抓兔子》《骗子》《保证满意》《列尼》《校工》《消失无踪》《冒险》《逃避》《证据》《可避免的冲突》《女性直觉》《汝竟顾念他》《机器人之梦》《正电子人》等三十二篇小说。</p>
+<p>在这些形形色色的短篇小说中，各种机器人的形象描写得栩栩如生，他们的喜怒哀乐，他们与人类如何相处，他们的存在所带来的人类社会的困惑……无不使得故事具有独特的趣味，并能让人产生无尽的遐想。</p>
+<p>在众多的机器人短篇小说中，都有一个永恒的话题，即“机器人三定律”。这是阿西莫夫最重大的科幻理论，可以说：“机器人三定律”是智能机器人赖以存在和发展的准则。</p>
+<p>在形式上，机器人三定律有着数学公式般的美感，其含义简洁、明确，环环相扣，具有瞬间揭示“从属”关系的魅力；在逻辑上，却又存在着诸多“悖论”，能让人迷失于“存在”、“意义”的迷宫中而又获得惊悚和醍醐灌顶的快感。</p>
+<p>《机器人短篇全集》便是这种美感、快感兼具的作品。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/28/%E7%A7%91%E5%B9%BB-40/" rel="prev" title="科幻-40">
+      <i class="fa fa-chevron-left"></i> 科幻-40
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/28/%E7%A7%91%E5%B9%BB-0/" rel="next" title="科幻-0">
+      科幻-0 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件体的生命周期"><span class="nav-number">1.</span> <span class="nav-text">软件体的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息"><span class="nav-number">1.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摩天楼"><span class="nav-number">2.</span> <span class="nav-text">摩天楼</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-1"><span class="nav-number">2.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-1"><span class="nav-number">2.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#仿生人会梦见电子羊吗？"><span class="nav-number">3.</span> <span class="nav-text">仿生人会梦见电子羊吗？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-2"><span class="nav-number">3.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-2"><span class="nav-number">3.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#少数派报告"><span class="nav-number">4.</span> <span class="nav-text">少数派报告</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-3"><span class="nav-number">4.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-3"><span class="nav-number">4.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#美国众神"><span class="nav-number">5.</span> <span class="nav-text">美国众神</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-4"><span class="nav-number">5.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-4"><span class="nav-number">5.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深渊上的火"><span class="nav-number">6.</span> <span class="nav-text">深渊上的火</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-5"><span class="nav-number">6.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-5"><span class="nav-number">6.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2001太空漫游"><span class="nav-number">7.</span> <span class="nav-text">2001太空漫游</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-6"><span class="nav-number">7.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-6"><span class="nav-number">7.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宇宙尽头的餐馆"><span class="nav-number">8.</span> <span class="nav-text">宇宙尽头的餐馆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-7"><span class="nav-number">8.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-7"><span class="nav-number">8.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神的九十亿个名字"><span class="nav-number">9.</span> <span class="nav-text">神的九十亿个名字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-8"><span class="nav-number">9.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-8"><span class="nav-number">9.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大师的盛宴"><span class="nav-number">10.</span> <span class="nav-text">大师的盛宴</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-9"><span class="nav-number">10.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-9"><span class="nav-number">10.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#银河英雄传说"><span class="nav-number">11.</span> <span class="nav-text">银河英雄传说</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-10"><span class="nav-number">11.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-10"><span class="nav-number">11.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#云图"><span class="nav-number">12.</span> <span class="nav-text">云图</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-11"><span class="nav-number">12.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-11"><span class="nav-number">12.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“太空漫游”四部曲"><span class="nav-number">13.</span> <span class="nav-text">“太空漫游”四部曲</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-12"><span class="nav-number">13.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-12"><span class="nav-number">13.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#艾比斯之梦"><span class="nav-number">14.</span> <span class="nav-text">艾比斯之梦</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-13"><span class="nav-number">14.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-13"><span class="nav-number">14.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#看海的人"><span class="nav-number">15.</span> <span class="nav-text">看海的人</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-14"><span class="nav-number">15.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-14"><span class="nav-number">15.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全息玫瑰碎片"><span class="nav-number">16.</span> <span class="nav-text">全息玫瑰碎片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-15"><span class="nav-number">16.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-15"><span class="nav-number">16.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#海底两万里"><span class="nav-number">17.</span> <span class="nav-text">海底两万里</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-16"><span class="nav-number">17.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-16"><span class="nav-number">17.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流浪地球"><span class="nav-number">18.</span> <span class="nav-text">流浪地球</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-17"><span class="nav-number">18.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-17"><span class="nav-number">18.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安德的游戏"><span class="nav-number">19.</span> <span class="nav-text">安德的游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-18"><span class="nav-number">19.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-18"><span class="nav-number">19.2.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机器人短篇全集（上下）"><span class="nav-number">20.</span> <span class="nav-text">机器人短篇全集（上下）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息-19"><span class="nav-number">20.1.</span> <span class="nav-text">信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简介-19"><span class="nav-number">20.2.</span> <span class="nav-text">简介</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">ryo</p>
+  <div class="site-description" itemprop="description">好看优秀的书籍整理</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">250</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/houbb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;houbb" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/houbinbin.echo@gmail.com" title="E-Mail → houbinbin.echo@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ryo</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
